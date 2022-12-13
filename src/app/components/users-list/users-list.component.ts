@@ -10,9 +10,9 @@ import UserService from 'src/app/services/user.service';
 export class UsersListComponent implements OnInit {
   userList: User[] = [];
 
-  constructor(private userService: UserService) {}
+  constructor(private service: UserService) {}
   ngOnInit(): void {
-    this.userService.get().then((userList) => (this.userList = userList));
+    this.service.get().then((userList) => (this.userList = userList));
   }
 
   userAuthentication(user: User) {}
