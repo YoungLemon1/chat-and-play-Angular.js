@@ -1,0 +1,23 @@
+{
+    "users": [
+        {
+            "id": 0,
+            "username": "blaze08",
+            "password": "b8",
+            "isOnline": "true"
+        },
+        {
+            "id": 1,
+            "username": "turtle02",
+            "password": "t2",
+            "isOnline": "true"
+            
+        },
+        {
+            "id": 2,
+            "username": "himdele60",
+            "password": "h6",
+            "isOnline": "false"
+        }
+    ]
+}
