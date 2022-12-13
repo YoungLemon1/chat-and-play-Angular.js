@@ -11,6 +11,13 @@ class UserService {
       .then((data) => data as User[]);
   }
 
+  getById(id: number) {
+    return fetch(DBURL)
+      .then((res) => res.json())
+      .then((data) => data as User[])
+      .then((users) => users.splice(id, 1));
+  }
+
   /*
   get()
   return.this.httpClient.get(DBURL);
