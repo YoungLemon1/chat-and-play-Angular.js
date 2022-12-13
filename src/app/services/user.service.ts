@@ -5,19 +5,10 @@ const DBURL = 'http://localhost:3000/users/';
 
 class UserService {
   constructor() {}
-  async get() {
-    const res = await fetch(DBURL);
-    const data = await res.json();
-    return data as User[];
-  }
-
-  async getUsers(): Promise<User[]> {
-    try {
-      return await this.get();
-    } catch (error) {
-      console.log(error);
-      return await this.get();
-    }
+  get() {
+    return fetch(DBURL)
+      .then((res) => res.json())
+      .then((data) => data as User[]);
   }
 
   /*
