@@ -9,11 +9,11 @@ import UserService from 'src/app/services/user.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  constructor(private service:UserService)
-  {
+  constructor(private service: UserService) {
     service = new UserService();
   }
-  authenticateUser(user:User) {
-    if (this.service.isUserAuthenticated(user))
+  authenticateUser(user: User) {
+    if (this.service.isUserAuthenticated(user)) {
+    }
   }
 }
