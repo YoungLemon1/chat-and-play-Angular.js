@@ -8,11 +8,14 @@ import UserService from 'src/app/services/user.service';
   styleUrls: ['./personal-user-list.component.css'],
 })
 export class PersonalUserListComponent implements OnInit {
+  user: User = new User();
   userList: User[] = [];
 
   constructor(private service: UserService) {}
   ngOnInit(): void {
-    this.service.get().then((userList) => (this.userList = userList));
+    this.service
+      .getById(this.user.id!)
+      .then((userList) => (this.userList = userList));
   }
 
   userAuthentication(user: User) {}
