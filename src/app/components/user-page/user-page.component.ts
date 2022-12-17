@@ -1,5 +1,5 @@
 import { outputAst } from '@angular/compiler';
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import User from 'src/app/models/user.model';
 import UserService from 'src/app/services/user.service';
@@ -9,7 +9,7 @@ import UserService from 'src/app/services/user.service';
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.css'],
 })
-export class UserPageComponent {
+export class UserPageComponent implements OnInit {
   user: User | null = null;
   userList: User[] = [];
 

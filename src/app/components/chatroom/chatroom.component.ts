@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Chatroom from 'src/app/models/chatroom.model';
 
 @Component({
@@ -6,4 +6,4 @@ import Chatroom from 'src/app/models/chatroom.model';
   templateUrl: './chatroom.component.html',
   styleUrls: ['./chatroom.component.css'],
 })
-export class ChatroomComponent {}
+export class ChatroomComponent implements OnInit {}

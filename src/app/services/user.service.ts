@@ -4,34 +4,33 @@ import User from 'src/app/models/user.model';
 const DBURL = 'http://localhost:3000/users/';
 
 class UserService {
-  constructor() {
-    let x = 1;
-  }
-  get() {
-    return fetch(DBURL)
-      .then((res) => res.json())
-      .then((data) => data as User[]);
+  constructor() {}
+  async get() {
+    const res = await fetch(DBURL);
+    const data = await res.json();
+    return data as User[];
   }
 
-  getUserById(id: number) {
-    return fetch(DBURL)
-      .then((res) => res.json())
-      .then((data) => data as User[])
-      .then((users) => users[id]);
+  async getUserById(id: number) {
+    const res = await fetch(DBURL);
+    const data = await res.json();
+    const users = data as User[];
+    return users[id];
   }
 
-  isUserAuthenticated(user: User) {
-    return this.userAuthenticationId(user).then((id) => id != -1);
+  async isUserAuthenticated(user: User) {
+    const id = await this.userAuthenticationId(user);
+    return id != -1;
   }
 
-  matchUser(user: User) {
+  async matchUser(user: User) {
     let id: number;
     let users: User[];
-    return this.get()
-      .then((data) => (users = data))
-      .then(() => this.userAuthenticationId(user))
-      .then((userId) => (id = userId))
-      .then(() => (user = users[id]));
+    const data = await this.get();
+    users = data;
+    const userId = await this.userAuthenticationId(user);
+    id = userId;
+    return (user = users[id]);
   }
   /*
   get()
@@ -53,25 +52,21 @@ class UserService {
     return this.httpClient.delete(DBURL + id);
   } */
 
-  userAuthenticationId(authUser: User) {
+  async userAuthenticationId(authUser: User) {
     let id = -1;
-    return this.get()
-      .then((users) => {
-        for (let i = 0; i < users.length; i++) {
-          let currentUser = users[i];
-          if (currentUser.username === authUser.username) {
-            if (currentUser.password === authUser.password) {
-              id = i;
-            } else {
-              console.log('Password is incorrect');
-            }
-            break;
-          }
+    const users = await this.get();
+    for (let i = 0; i < users.length; i++) {
+      let currentUser = users[i];
+      if (currentUser.username === authUser.username) {
+        if (currentUser.password === authUser.password) {
+          id = i;
+        } else {
+          console.log('Password is incorrect');
         }
-      })
-      .then(() => {
-        return id;
-      });
+        break;
+      }
+    }
+    return id;
   }
 }
 
