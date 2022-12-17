@@ -9,7 +9,9 @@ import UserService from 'src/app/services/user.service';
   styleUrls: ['./personal-user-list.component.css'],
 })
 export class PersonalUserListComponent implements OnInit {
-  @Input() user: User = new User();
+  @Input()
+  user!: User;
+
   userList: User[] = [];
 
   constructor(private service: UserService, private route: ActivatedRoute) {}

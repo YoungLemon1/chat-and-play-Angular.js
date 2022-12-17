@@ -1,9 +1,11 @@
 class Message {
   constructor(
-    public id?: string,
-    public senderId?: string,
-    public text?: string,
-    public createdTime?: Date
+    public id: string,
+    public index: number,
+    public senderId: number,
+    public recipientId: number,
+    public text: string,
+    public createdTime: Date
   ) {}
 }
 

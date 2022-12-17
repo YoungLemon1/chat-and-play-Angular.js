@@ -6,6 +6,4 @@ import Chatroom from 'src/app/models/chatroom';
   templateUrl: './chatroom.component.html',
   styleUrls: ['./chatroom.component.css'],
 })
-export class ChatroomComponent {
-  chatroom = new Chatroom();
-}
+export class ChatroomComponent {}

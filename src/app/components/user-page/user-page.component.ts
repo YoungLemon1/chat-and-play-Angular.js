@@ -10,7 +10,7 @@ import UserService from 'src/app/services/user.service';
   styleUrls: ['./user-page.component.css'],
 })
 export class UserPageComponent {
-  user: User = new User();
+  user: User | null = null;
   userList: User[] = [];
 
   constructor(
@@ -22,7 +22,9 @@ export class UserPageComponent {
     this.route.params.subscribe((params) => {
       fetch(`http://localhost:3000/users/${params['id']}`)
         .then((response) => response.json())
-        .then((data: User) => (this.user = data));
+        .then((data: User) => {
+          this.user = data;
+        });
     });
   }
 }
