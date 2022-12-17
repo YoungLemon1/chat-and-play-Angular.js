@@ -24,12 +24,8 @@ class UserService {
   }
 
   async matchUser(user: User) {
-    let id: number;
-    let users: User[];
-    const data = await this.get();
-    users = data;
-    const userId = await this.userAuthenticationId(user);
-    id = userId;
+    const users = await this.get();
+    const id = await this.userAuthenticationId(user);
     return (user = users[id]);
   }
   /*
