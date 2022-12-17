@@ -12,7 +12,7 @@ export class UsersListComponent implements OnInit {
 
   constructor(private service: UserService) {}
   ngOnInit(): void {
-    this.service.get().then((userList) => (this.userList = userList));
+    this.service.getUsers().then((userList) => (this.userList = userList));
   }
 
   userAuthentication(user: User) {}

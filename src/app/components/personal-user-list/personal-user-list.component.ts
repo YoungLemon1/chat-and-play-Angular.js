@@ -17,7 +17,7 @@ export class PersonalUserListComponent implements OnInit {
   constructor(private service: UserService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.service.get().then((data) => {
+    this.service.getUsers().then((data) => {
       this.userList = data;
       this.userList.splice(this.user.id!, 1);
     });

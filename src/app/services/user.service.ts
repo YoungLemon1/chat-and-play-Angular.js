@@ -5,7 +5,7 @@ const DBURL = 'http://localhost:3000/users/';
 
 class UserService {
   constructor() {}
-  async get() {
+  async getUsers() {
     const res = await fetch(DBURL);
     const data = await res.json();
     return data as User[];
@@ -24,7 +24,7 @@ class UserService {
   }
 
   async matchUser(user: User) {
-    const users = await this.get();
+    const users = await this.getUsers();
     const id = await this.userAuthenticationId(user);
     return (user = users[id]);
   }
@@ -49,7 +49,7 @@ class UserService {
   } */
 
   async userAuthenticationId(authUser: User) {
-    const users = await this.get();
+    const users = await this.getUsers();
     return users.findIndex(
       (user) =>
         user.username === authUser.username &&
