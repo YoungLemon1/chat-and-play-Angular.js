@@ -23,7 +23,7 @@ export class LoginComponent {
       .then((isAuthenticated) =>
         isAuthenticated
           ? this.routeToUsersPage(this.username)
-          : console.log('username or password are incorrect, try again')
+          : alert('username or password are incorrect, try again')
       );
   }
 

@@ -10,8 +10,7 @@ import UserService from 'src/app/services/user.service';
   styleUrls: ['./user-page.component.css'],
 })
 export class UserPageComponent implements OnInit {
-  user: User | null = null;
-  userList: User[] = [];
+  username: string = '';
 
   constructor(
     private service: UserService,
@@ -20,11 +19,7 @@ export class UserPageComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      fetch(`http://localhost:3000/users/${params['username']}`)
-        .then((response) => response.json())
-        .then((data: User) => {
-          this.user = data;
-        });
+      this.username = params['username'];
     });
   }
 }

@@ -10,7 +10,7 @@ import UserService from 'src/app/services/user.service';
 })
 export class PersonalUserListComponent implements OnInit {
   @Input()
-  user!: User;
+  username!: string;
 
   userList: User[] = [];
 
@@ -18,7 +18,7 @@ export class PersonalUserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getUsers().then((data) => {
-      this.userList = data.filter((u) => u.username !== this.user.username);
+      this.userList = data.filter((u) => u.username !== this.username);
     });
   }
 
