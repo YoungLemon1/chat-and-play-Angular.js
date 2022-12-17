@@ -9,13 +9,6 @@ class UserService {
     const data = await res.json();
     return data as User[];
   }
-
-  async getUserById(id: number) {
-    const res = await fetch(USERS_ENDPOINT);
-    const data = await res.json();
-    const users = data as User[];
-    return users[id];
-  }
   /*
   get()
   return.this.httpClient.get(DBURL);
