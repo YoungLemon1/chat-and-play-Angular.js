@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
 import User from 'src/app/models/user.model';
 
-const DBURL = 'http://localhost:3000/users/';
+const USERS_ENDPOINT = 'http://localhost:3000/users/';
 
 class UserService {
   constructor() {}
   async getUsers() {
-    const res = await fetch(DBURL);
+    const res = await fetch(USERS_ENDPOINT);
     const data = await res.json();
     return data as User[];
   }
 
   async getUserById(id: number) {
-    const res = await fetch(DBURL);
+    const res = await fetch(USERS_ENDPOINT);
     const data = await res.json();
     const users = data as User[];
     return users[id];
