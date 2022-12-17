@@ -6,4 +6,4 @@ import Chatroom from 'src/app/models/chatroom.model';
   templateUrl: './chatroom.component.html',
   styleUrls: ['./chatroom.component.css'],
 })
-export class ChatroomComponent implements OnInit {}
+export class ChatroomComponent {}

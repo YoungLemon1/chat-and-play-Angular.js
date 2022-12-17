@@ -15,7 +15,7 @@
               required
               minlength="1"
               maxlength="26"
-              [(ngModel)]="user.username"
+              [(ngModel)]="user!.username"
               #name="ngModel"
             />
           </td>
@@ -30,13 +30,13 @@
               required
               minlength="1"
               rows="4"
-              [(ngModel)]="user.password"
+              [(ngModel)]="user!.password"
               #description="ngModel"
             />
           </td>
         </tr>
       </table>
-      <button (click)="authenticateUser(user)">LOG IN</button>
+      <button (click)="authenticateUser(user!)">LOG IN</button>
     </form>
     <button>SIGN UP</button>
   </div>
