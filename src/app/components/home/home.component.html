@@ -6,17 +6,39 @@
       <table>
         <tr>
           <td><label id="name" for="name">Name</label></td>
-          <td><input id="name" name="name" /></td>
+          <td>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              class="form-control"
+              required
+              minlength="1"
+              maxlength="26"
+              [(ngModel)]="user.username"
+              #name="ngModel"
+            />
+          </td>
         </tr>
         <tr>
           <td><label id="password" for="password">Password</label></td>
-          <td><input id="password" name="password" /></td>
+          <td>
+            <input
+              id="password"
+              name="password"
+              class="form-control"
+              required
+              minlength="1"
+              rows="4"
+              [(ngModel)]="user.password"
+              #description="ngModel"
+            />
+          </td>
         </tr>
       </table>
-      <a [routerLink]="['/users-page']">Users-page</a>
+      <button (click)="routToUsersPage(user)">LOG IN</button>
     </form>
-    <br />
-    <button>Sign up</button>
-    <button>Log in</button>
+    <button>SIGN UP</button>
   </div>
+  <a [routerLink]="['/users-page']">Users-page</a>
 </div>

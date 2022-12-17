@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import User from 'src/app/models/user.model';
 import UserService from 'src/app/services/user.service';
 
@@ -8,15 +9,19 @@ import UserService from 'src/app/services/user.service';
   styleUrls: ['./personal-user-list.component.css'],
 })
 export class PersonalUserListComponent implements OnInit {
-  user: User = new User();
+  @Input() user: User = new User();
   userList: User[] = [];
 
-  constructor(private service: UserService) {}
-  ngOnInit(): void {
-    this.service
-      .getById(this.user.id!)
-      .then((userList) => (this.userList = userList));
-  }
+  constructor(private service: UserService, private route: ActivatedRoute) {}
 
-  userAuthentication(user: User) {}
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      fetch(`http://localhost:3000/products/${params['id']}`)
+        .then((response) => response.json())
+        .then((data: User) => (this.user = data))
+        .then(() => this.service.get())
+        .then((data) => data.splice(this.user.id!, 1))
+        .then((userList) => (this.userList = userList));
+    });
+  }
 }

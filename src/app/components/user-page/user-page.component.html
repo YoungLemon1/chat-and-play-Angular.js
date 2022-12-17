@@ -1,1 +1,3 @@
-<p>user-page works!</p>
+<h2>Welcome {{ user.username }}!</h2>
+<a [routerLink]="['/']">Sign out</a>
+<app-personal-user-list [user]="user"></app-personal-user-list>

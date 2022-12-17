@@ -11,13 +11,13 @@ class UserService {
       .then((data) => data as User[]);
   }
 
-  getById(id: number) {
-    return fetch(DBURL)
-      .then((res) => res.json())
-      .then((data) => data as User[])
-      .then((users) => users.splice(id, 1));
+  getUsersID(user: User): number {
+    return user.id!;
+    if (this.isUserAuthenticated(user)) {
+      return user.id!;
+    }
+    return -1;
   }
-
   /*
   get()
   return.this.httpClient.get(DBURL);
@@ -39,21 +39,21 @@ class UserService {
   } */
 
   isUserAuthenticated(authUser: User): boolean {
-    const res = this.get().then((users) => {
+    let b = false;
+    this.get().then((users) => {
       for (let i = 0; i < users.length; i++) {
         let currentUser = users[i];
         if (currentUser.username === authUser.username) {
           if (currentUser.password === authUser.password) {
-            return true;
+            b = true;
           } else {
             console.log("user doesn't exist");
-            break;
           }
+          break;
         }
       }
-      return false;
     });
-    return res as unknown as boolean;
+    return b;
   }
 }
 
