@@ -16,7 +16,7 @@ export class HomeComponent {
   ) {
     service = new UserService();
   }
-  user: User | null = null;
+  user: User = new User(-1, '', '', false);
 
   authenticateUser(user: User) {
     this.service
