@@ -18,8 +18,7 @@ export class PersonalUserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getUsers().then((data) => {
-      this.userList = data;
-      this.userList.splice(this.user.id!, 1);
+      this.userList = data.filter((u) => u.username !== this.user.username);
     });
   }
 

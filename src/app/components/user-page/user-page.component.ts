@@ -20,7 +20,7 @@ export class UserPageComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      fetch(`http://localhost:3000/users/${params['id']}`)
+      fetch(`http://localhost:3000/users/${params['username']}`)
         .then((response) => response.json())
         .then((data: User) => {
           this.user = data;

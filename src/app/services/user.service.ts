@@ -16,17 +16,6 @@ class UserService {
     const users = data as User[];
     return users[id];
   }
-
-  async isUserAuthenticated(user: User) {
-    const id = await this.userAuthenticationId(user);
-    return id !== -1;
-  }
-
-  async matchUser(user: User) {
-    const users = await this.getUsers();
-    const id = await this.userAuthenticationId(user);
-    return users[id];
-  }
   /*
   get()
   return.this.httpClient.get(DBURL);
@@ -47,12 +36,10 @@ class UserService {
     return this.httpClient.delete(DBURL + id);
   } */
 
-  async userAuthenticationId(authUser: User) {
+  async isUserAuthenticated(username: string, password: string) {
     const users = await this.getUsers();
-    return users.findIndex(
-      (user) =>
-        user.username === authUser.username &&
-        user.password === authUser.password
+    return users.some(
+      (user) => user.username === username && user.password === password
     );
   }
 }
