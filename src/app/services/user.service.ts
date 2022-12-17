@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { findIndex } from 'rxjs';
 import User from 'src/app/models/user.model';
 
 const DBURL = 'http://localhost:3000/users/';
@@ -53,20 +54,10 @@ class UserService {
   } */
 
   async userAuthenticationId(authUser: User) {
-    let id = -1;
     const users = await this.get();
-    for (let i = 0; i < users.length; i++) {
-      let currentUser = users[i];
-      if (currentUser.username === authUser.username) {
-        if (currentUser.password === authUser.password) {
-          id = i;
-        } else {
-          console.log('Password is incorrect');
-        }
-        break;
-      }
-    }
-    return id;
+    return users.findIndex(
+      (user) => user.id === authUser.id && user.password === authUser.password
+    );
   }
 }
 
