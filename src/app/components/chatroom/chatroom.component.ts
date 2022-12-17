@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Chatroom from 'src/app/models/chatroom.model';
 
 @Component({
   selector: 'app-chatroom',
