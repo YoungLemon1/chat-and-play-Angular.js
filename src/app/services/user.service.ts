@@ -19,13 +19,13 @@ class UserService {
 
   async isUserAuthenticated(user: User) {
     const id = await this.userAuthenticationId(user);
-    return id != -1;
+    return id !== -1;
   }
 
   async matchUser(user: User) {
     const users = await this.getUsers();
     const id = await this.userAuthenticationId(user);
-    return (user = users[id]);
+    return users[id];
   }
   /*
   get()
