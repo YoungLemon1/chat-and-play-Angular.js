@@ -4,19 +4,34 @@ import User from 'src/app/models/user.model';
 const DBURL = 'http://localhost:3000/users/';
 
 class UserService {
-  constructor() {}
+  constructor() {
+    let x = 1;
+  }
   get() {
     return fetch(DBURL)
       .then((res) => res.json())
       .then((data) => data as User[]);
   }
 
-  getUsersID(user: User): number {
-    return user.id!;
-    if (this.isUserAuthenticated(user)) {
-      return user.id!;
-    }
-    return -1;
+  getUserById(id: number) {
+    return fetch(DBURL)
+      .then((res) => res.json())
+      .then((data) => data as User[])
+      .then((users) => users[id]);
+  }
+
+  isUserAuthenticated(user: User) {
+    return this.userAuthenticationId(user).then((id) => id != -1);
+  }
+
+  matchUser(user: User) {
+    let id: number;
+    let users: User[];
+    return this.get()
+      .then((data) => (users = data))
+      .then(() => this.userAuthenticationId(user))
+      .then((userId) => (id = userId))
+      .then(() => (user = users[id]));
   }
   /*
   get()
@@ -38,22 +53,25 @@ class UserService {
     return this.httpClient.delete(DBURL + id);
   } */
 
-  isUserAuthenticated(authUser: User): boolean {
-    let b = false;
-    this.get().then((users) => {
-      for (let i = 0; i < users.length; i++) {
-        let currentUser = users[i];
-        if (currentUser.username === authUser.username) {
-          if (currentUser.password === authUser.password) {
-            b = true;
-          } else {
-            console.log("user doesn't exist");
+  userAuthenticationId(authUser: User) {
+    let id = -1;
+    return this.get()
+      .then((users) => {
+        for (let i = 0; i < users.length; i++) {
+          let currentUser = users[i];
+          if (currentUser.username === authUser.username) {
+            if (currentUser.password === authUser.password) {
+              id = i;
+            } else {
+              console.log('Password is incorrect');
+            }
+            break;
           }
-          break;
         }
-      }
-    });
-    return b;
+      })
+      .then(() => {
+        return id;
+      });
   }
 }
 

@@ -15,13 +15,11 @@ export class PersonalUserListComponent implements OnInit {
   constructor(private service: UserService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      fetch(`http://localhost:3000/products/${params['id']}`)
-        .then((response) => response.json())
-        .then((data: User) => (this.user = data))
-        .then(() => this.service.get())
-        .then((data) => data.splice(this.user.id!, 1))
-        .then((userList) => (this.userList = userList));
+    this.service.get().then((data) => {
+      this.userList = data;
+      this.userList.splice(this.user.id!, 1);
     });
   }
+
+  openChat(user2: User): void {}
 }

@@ -17,12 +17,21 @@ export class HomeComponent {
     service = new UserService();
   }
   user: User = new User();
+
+  authenticateUser(user: User) {
+    this.service
+      .isUserAuthenticated(user)
+      .then((isAuthenticated) =>
+        isAuthenticated
+          ? this.routToUsersPage(user)
+          : console.log('username or password are incorrect, try again')
+      );
+  }
+
   routToUsersPage(user: User) {
-    let id = this.service.getUsersID(user);
-    if (id != -1) {
-      this.router.navigate([`users-page/${id}`]);
-    } else {
-      console.log('username or password are incorrect, please try again');
-    }
+    this.service
+      .matchUser(user)
+      .then((data) => (user = data))
+      .then(() => this.router.navigate([`users-page/${user.id}`]));
   }
 }

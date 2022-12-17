@@ -4,7 +4,7 @@
     <th>Online Status</th>
   </tr>
   <tr *ngFor="let user of userList">
-    <td>{{ user.username }}</td>
+    <td (click)="openChat(user)">{{ user.username }}</td>
     <td>{{ user.isOnline }}</td>
   </tr>
 </table>

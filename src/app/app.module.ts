@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { PersonalUserListComponent } from './components/personal-user-list/personal-user-list.component';
 import { FormsModule } from '@angular/forms';
+import { ChatroomComponent } from './components/chatroom/chatroom.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     UsersListComponent,
     UserPageComponent,
     PersonalUserListComponent,
+    ChatroomComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [UserService],

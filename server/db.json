@@ -19,5 +19,15 @@
             "password": "h6",
             "isOnline": "false"
         }
+    ],
+    "chatrooms": [
+        {
+            
+        }
+    ],
+    "messages": [
+        {
+
+        }
     ]
 }
