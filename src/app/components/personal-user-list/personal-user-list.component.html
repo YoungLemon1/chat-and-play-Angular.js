@@ -4,7 +4,16 @@
     <th>Online Status</th>
   </tr>
   <tr *ngFor="let user of userList">
-    <td (click)="openChat(user)">{{ user.username }}</td>
+    <td>
+      <a
+        [routerLink]="['/chatroom']"
+        [queryParams]="{
+          currentUsername: username,
+          otherUsername: user.username
+        }"
+        >{{ user.username }}</a
+      >
+    </td>
     <td>{{ user.isOnline }}</td>
   </tr>
 </table>

@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'users-page/:username', component: UserPageComponent },
-  { path: 'chatroom/:id', component: ChatroomComponent },
+  { path: 'chatroom', component: ChatroomComponent },
 ];
 
 @NgModule({

@@ -21,6 +21,4 @@ export class PersonalUserListComponent implements OnInit {
       this.userList = data.filter((u) => u.username !== this.username);
     });
   }
-
-  openChat(user2: User): void {}
 }
