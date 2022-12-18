@@ -24,7 +24,17 @@ export class ChatroomComponent implements OnInit {
       this.otherUsername = params['otherUsername'];
 
       this.messageService.getMessages().then((data) => {
-        this.messages = data;
+        this.messages = data
+          .filter(
+            (m) =>
+              (m.senderUsername === this.currentUsername &&
+                m.recipientUsername === this.otherUsername) ||
+              (m.senderUsername === this.otherUsername &&
+                m.recipientUsername === this.currentUsername)
+          )
+          .sort(
+            (objA, objB) => Number(objA.createdTime) - Number(objB.createdTime)
+          );
       });
     });
   }
