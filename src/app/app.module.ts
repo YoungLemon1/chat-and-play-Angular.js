@@ -9,6 +9,7 @@ import { PersonalUserListComponent } from './components/personal-user-list/perso
 import { FormsModule } from '@angular/forms';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { LoginComponent } from './components/login/login.component';
+import MessageService from './services/message.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { LoginComponent } from './components/login/login.component';
     ChatroomComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [UserService],
+  providers: [UserService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

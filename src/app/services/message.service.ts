@@ -1,5 +1,4 @@
 import Message from '../models/message.model';
-import User from '../models/user.model';
 
 const MESSAGES_ENDPOINT = 'http://localhost:3000/messages/';
 

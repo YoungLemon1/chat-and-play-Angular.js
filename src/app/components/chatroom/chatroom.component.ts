@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Message from 'src/app/models/message.model';
-import User from 'src/app/models/user.model';
 import MessageService from 'src/app/services/message.service';
 
 @Component({
