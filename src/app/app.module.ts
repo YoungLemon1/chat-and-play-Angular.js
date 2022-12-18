@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { LoginComponent } from './components/login/login.component';
 import MessageService from './services/message.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [

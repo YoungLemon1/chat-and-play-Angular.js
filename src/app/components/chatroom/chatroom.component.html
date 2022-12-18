@@ -1,2 +1,13 @@
 <h1>{{ currentUsername }} chatting with {{ otherUsername }}</h1>
-<div *ngFor="let message of messages"></div>
+<div>
+  <div *ngFor="let message of messages">
+    <label>{{ message.senderUsername }}</label>
+    <p>{{ message.text }}</p>
+    <p>{{ message.createdTime }}</p>
+  </div>
+  <div>
+    <form>
+      <input placeholder="Write something..." />
+    </form>
+  </div>
+</div>

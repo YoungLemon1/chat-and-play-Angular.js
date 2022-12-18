@@ -21,13 +21,13 @@
             "senderUsername": "blaze08",
             "recipientUsername": "turtle02",
             "text": "Hi",
-            "createdTime": "2022-12-18 11:18:00"
+            "createdTime": "11:18:00"
         },
         {
             "senderUsername": "turtle02",
             "recipientUsername": "blaze08",
             "text": "whatsup?",
-            "createdTime": "2022-12-18 11:19:00"
+            "createdTime": "11:19:00"
         }
     ]
 }

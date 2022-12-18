@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Message from 'src/app/models/message.model';
@@ -16,6 +17,7 @@ export class ChatroomComponent implements OnInit {
   currentUsername: string = '';
   otherUsername: string = '';
   messages: Message[] = [];
+  text: string = '';
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
@@ -36,5 +38,16 @@ export class ChatroomComponent implements OnInit {
           );
       });
     });
+  }
+
+  sendMessage(text: string) {
+    let currentDate = new Date();
+    let message = new Message(
+      this.currentUsername,
+      this.otherUsername,
+      text,
+      currentDate
+    );
+    this.messageService.createMessage(message);
   }
 }
