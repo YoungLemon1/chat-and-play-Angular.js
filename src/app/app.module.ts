@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import UserService from './services/user.service';
@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { LoginComponent } from './components/login/login.component';
 import MessageService from './services/message.service';
-import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,8 +19,8 @@ import { DatePipe } from '@angular/common';
     PersonalUserListComponent,
     ChatroomComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [UserService, MessageService],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [UserService, MessageService, HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

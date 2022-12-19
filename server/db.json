@@ -1,33 +1,42 @@
 {
-    "users": [
-        {
-            "username": "blaze08",
-            "password": "b8",
-            "isOnline": "true"
-        },
-        {
-            "username": "turtle02",
-            "password": "t2",
-            "isOnline": "true"
-        },
-        {
-            "username": "himdele60",
-            "password": "h6",
-            "isOnline": "false"
-        }
-    ],
-    "messages": [
-        {
-            "senderUsername": "blaze08",
-            "recipientUsername": "turtle02",
-            "text": "Hi",
-            "createdTime": "11:18:00"
-        },
-        {
-            "senderUsername": "turtle02",
-            "recipientUsername": "blaze08",
-            "text": "whatsup?",
-            "createdTime": "11:19:00"
-        }
-    ]
+  "users": [
+    {
+      "username": "blaze08",
+      "password": "b8",
+      "isOnline": "true"
+    },
+    {
+      "username": "turtle02",
+      "password": "t2",
+      "isOnline": "true"
+    },
+    {
+      "username": "himdele60",
+      "password": "h6",
+      "isOnline": "false"
+    }
+  ],
+  "messages": [
+    {
+      "id": 0,
+      "senderUsername": "blaze08",
+      "recipientUsername": "turtle02",
+      "text": "Hi",
+      "createdTime": "Sun Dec 18 2022 10:20:39 GMT+0200 (Israel Standard Time)"
+    },
+    {
+      "id": 1,
+      "senderUsername": "turtle02",
+      "recipientUsername": "blaze08",
+      "text": "whatsup?",
+      "createdTime": "Sun Dec 18 2022 10:21:21 GMT+0200 (Israel Standard Time)"
+    },
+    {
+      "senderUsername": "blaze08",
+      "recipientUsername": "turtle02",
+      "text": "cool",
+      "createdTime": "2022-12-18T17:08:47.437Z",
+      "id": 2
+    }
+  ]
 }

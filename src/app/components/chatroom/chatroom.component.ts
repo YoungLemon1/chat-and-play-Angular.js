@@ -40,14 +40,15 @@ export class ChatroomComponent implements OnInit {
     });
   }
 
-  sendMessage(text: string) {
+  sendMessage() {
     let currentDate = new Date();
     let message = new Message(
       this.currentUsername,
       this.otherUsername,
-      text,
+      this.text,
       currentDate
     );
+    debugger;
     this.messageService.createMessage(message);
   }
 }

@@ -1,10 +1,10 @@
 <h1>{{ currentUsername }} chatting with {{ otherUsername }}</h1>
+<hr />
 <div>
   <div *ngFor="let message of messages">
-    <hr />
     <label>{{ message.senderUsername }}</label>
     <p>{{ message.text }}</p>
-    <p>{{ message.createdTime }}</p>
+    <p>{{ message.createdTime | date : "HH:MM" }}</p>
     <hr />
   </div>
   <div>
@@ -21,7 +21,7 @@
         #name="ngModel"
         placeholder="Write something..."
       />
-      <button (click)="sendMessage()">Send</button>
+      <button [disabled]="text === ''" (click)="sendMessage()">Send</button>
     </form>
   </div>
 </div>
