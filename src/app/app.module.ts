@@ -20,7 +20,7 @@ import MessageService from './services/message.service';
     ChatroomComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [UserService, MessageService, HttpClientModule],
+  providers: [UserService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

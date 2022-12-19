@@ -24,8 +24,8 @@ export class ChatroomComponent implements OnInit {
       this.currentUsername = params['currentUsername'];
       this.otherUsername = params['otherUsername'];
 
-      this.messageService.getMessages().then((data) => {
-        this.messages = data
+      this.messageService.get().subscribe((res) => {
+        this.messages = res
           .filter(
             (m) =>
               (m.senderUsername === this.currentUsername &&
@@ -48,7 +48,7 @@ export class ChatroomComponent implements OnInit {
       this.text,
       currentDate
     );
-    debugger;
+    this.text = '';
     this.messageService.createMessage(message);
   }
 }
