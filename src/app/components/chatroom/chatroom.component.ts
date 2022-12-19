@@ -24,19 +24,27 @@ export class ChatroomComponent implements OnInit {
       this.currentUsername = params['currentUsername'];
       this.otherUsername = params['otherUsername'];
 
-      this.messageService.get().subscribe((res) => {
-        this.messages = res
-          .filter(
-            (m) =>
-              (m.senderUsername === this.currentUsername &&
-                m.recipientUsername === this.otherUsername) ||
-              (m.senderUsername === this.otherUsername &&
-                m.recipientUsername === this.currentUsername)
-          )
-          .sort(
-            (objA, objB) => Number(objA.createdTime) - Number(objB.createdTime)
-          );
+      this.messageService.refresNeeded$.subscribe(() => {
+        this.getChatMessages();
       });
+
+      this.getChatMessages();
+    });
+  }
+
+  private getChatMessages() {
+    this.messageService.get().subscribe((res) => {
+      this.messages = res
+        .filter(
+          (m) =>
+            (m.senderUsername === this.currentUsername &&
+              m.recipientUsername === this.otherUsername) ||
+            (m.senderUsername === this.otherUsername &&
+              m.recipientUsername === this.currentUsername)
+        )
+        .sort(
+          (objA, objB) => Number(objA.createdTime) - Number(objB.createdTime)
+        );
     });
   }
 
@@ -49,6 +57,6 @@ export class ChatroomComponent implements OnInit {
       currentDate
     );
     this.text = '';
-    this.messageService.createMessage(message);
+    this.messageService.create(message).subscribe();
   }
 }

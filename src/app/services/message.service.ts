@@ -1,7 +1,7 @@
 import Message from '../models/message.model';
 import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 const MESSAGES_ENDPOINT = 'http://localhost:3000/messages/';
@@ -10,12 +10,21 @@ const MESSAGES_ENDPOINT = 'http://localhost:3000/messages/';
 class MessageService {
   constructor(private httpClient: HttpClient) {}
 
+  private _refreshNeeded$ = new Subject<void>();
+  get refresNeeded$() {
+    return this._refreshNeeded$;
+  }
+
   get(): Observable<Message[]> {
     return this.httpClient.get<Message[]>(MESSAGES_ENDPOINT);
   }
 
   create(prod: Message): Observable<Message> {
-    return this.httpClient.post<Message>(MESSAGES_ENDPOINT, prod);
+    return this.httpClient.post<Message>(MESSAGES_ENDPOINT, prod).pipe(
+      tap(() => {
+        this._refreshNeeded$.next();
+      })
+    );
   }
 
   delete(id: number): Observable<Message> {
