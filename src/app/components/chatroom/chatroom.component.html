@@ -1,13 +1,27 @@
 <h1>{{ currentUsername }} chatting with {{ otherUsername }}</h1>
 <div>
   <div *ngFor="let message of messages">
+    <hr />
     <label>{{ message.senderUsername }}</label>
     <p>{{ message.text }}</p>
     <p>{{ message.createdTime }}</p>
+    <hr />
   </div>
   <div>
     <form>
-      <input placeholder="Write something..." />
+      <input
+        id="messageText"
+        name="messageText"
+        type="text"
+        class="form-control"
+        required
+        minlength="1"
+        maxlength="26"
+        [(ngModel)]="text"
+        #name="ngModel"
+        placeholder="Write something..."
+      />
+      <button (click)="sendMessage()">Send</button>
     </form>
   </div>
 </div>
