@@ -1,22 +1,22 @@
 {
   "users": [
     {
-      "id": 0,
       "username": "blaze08",
       "password": "b8",
-      "isOnline": false
+      "isOnline": true,
+      "id": 0
     },
     {
       "id": 1,
       "username": "turtle02",
       "password": "t2",
-      "isOnline": false
+      "isOnline": true
     },
     {
       "id": 2,
       "username": "himdele60",
       "password": "h6",
-      "isOnline": true
+      "isOnline": false
     },
     {
       "username": "asdsx",
@@ -39,6 +39,20 @@
       "recipientUsername": "blaze08",
       "text": "whatsup?",
       "createdTime": "Sun Dec 18 2022 10:21:21 GMT+0200 (Israel Standard Time)"
+    },
+    {
+      "senderUsername": "blaze08",
+      "recipientUsername": "himdele60",
+      "text": "hi",
+      "createdTime": "2022-12-20T19:17:32.001Z",
+      "id": 2
+    },
+    {
+      "senderUsername": "turtle02",
+      "recipientUsername": "himdele60",
+      "text": "hello",
+      "createdTime": "2022-12-20T19:17:36.372Z",
+      "id": 3
     }
   ]
 }

@@ -13,6 +13,7 @@ export class LoginComponent {
     private route: ActivatedRoute,
     private router: Router
   ) {}
+  id = -1;
   username = '';
   password = '';
 
@@ -25,7 +26,10 @@ export class LoginComponent {
           if (isOnline) {
             alert('user is already logged in');
           } else {
-            this.service.login(this.username);
+            this.service.getUsersID(this.username).then((id) => {
+              this.id = id;
+              this.service.login(this.username, id);
+            });
           }
         } else {
           alert('user or password are incorrect');

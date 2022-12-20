@@ -1,9 +1,9 @@
-<table>
+<table id="users-list">
   <tr>
     <th>Username</th>
     <th>Online Status</th>
   </tr>
-  <tr *ngFor="let user of userList">
+  <tr *ngFor="let user of onlineUsers">
     <td>
       <a
         [routerLink]="['/chatroom']"
@@ -14,6 +14,12 @@
         >{{ user.username }}</a
       >
     </td>
-    <td>{{ user.isOnline }}</td>
+    <td id="online">Online</td>
+  </tr>
+  <tr *ngFor="let user of offlineUsers">
+    <td>
+      {{ user.username }}
+    </td>
+    <td id="offline">Offline</td>
   </tr>
 </table>

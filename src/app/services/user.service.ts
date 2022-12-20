@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { findIndex, Observable } from 'rxjs';
 import User from 'src/app/models/user.model';
 
 const USERS_ENDPOINT = 'http://localhost:3000/users/';
@@ -25,8 +25,8 @@ class UserService {
     return this.httpClient.post<User>(USERS_ENDPOINT, user);
   }
 
-  update(username: string, user: User): Observable<User> {
-    return this.httpClient.put<User>(USERS_ENDPOINT + username, user);
+  update(id: number, user: User): Observable<User> {
+    return this.httpClient.put<User>(USERS_ENDPOINT + id, user);
   }
 
   /*   delete(id: number): Observable<User> {
@@ -37,15 +37,23 @@ class UserService {
     return this.httpClient.get<User>(USERS_ENDPOINT + id);
   } */
 
-  async login(username: string) {
+  async getUsersID(username: string) {
     let user = await this.getByUserName(username);
-    this.update(username, user!).subscribe((u) => (u.isOnline = true));
+    const users = await this.getUsers();
+    return users.findIndex((u) => u.username === user!.username);
+  }
+
+  async login(username: string, id: number) {
+    let user = await this.getByUserName(username);
+    user!.isOnline = true;
+    this.update(id, user!).subscribe();
     this.router.navigate([`users-page/${username}`]);
   }
 
-  async logout(username: string) {
+  async logout(username: string, id: number) {
     let user = await this.getByUserName(username);
-    this.update(username, user!).subscribe((u) => (u.isOnline = false));
+    user!.isOnline = false;
+    this.update(id, user!).subscribe();
     this.router.navigate(['login/']);
   }
 

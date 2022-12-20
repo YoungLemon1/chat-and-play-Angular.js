@@ -18,6 +18,10 @@ export class SignUpComponent {
     if (this.username === '' || this.password === '') {
       return;
     }
+    if (this.repeatedPassword !== this.password) {
+      alert('Passwords mismatch');
+      return;
+    }
     if (this.username.length < 4 || this.password.length < 2) {
       alert('Invalid username or password');
       return;
@@ -27,10 +31,10 @@ export class SignUpComponent {
       (b) => {
         if (b) {
           this.userService.create(user).subscribe();
-          alert('user created');
+          alert('User created');
           this.router.navigate([`/`]);
         } else {
-          alert(`username "${this.username}" already exists`);
+          alert(`Username "${this.username}" already exists`);
         }
       }
       /* b
