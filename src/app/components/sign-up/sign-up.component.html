@@ -1,1 +1,64 @@
-<p>sign-up works!</p>
+<div>
+  <h1>Sign Up</h1>
+  <a [routerLink]="['']">Back</a>
+
+  <div>
+    <form>
+      <table>
+        <tr>
+          <td><label id="name" for="name">Name</label></td>
+          <td>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              class="form-control"
+              required
+              minlength="1"
+              maxlength="26"
+              [(ngModel)]="username"
+              #name="ngModel"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label id="password" for="password">Password</label></td>
+          <td>
+            <input
+              id="password"
+              name="password"
+              class="form-control"
+              type="password"
+              required
+              minlength="1"
+              rows="4"
+              [(ngModel)]="password"
+              #description="ngModel"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label id="repeatedPassword" for="repeatedPassword"
+              >confirm your password</label
+            >
+          </td>
+          <td>
+            <input
+              id="repeatedPassword"
+              name="repeatedPassword"
+              class="form-control"
+              type="password"
+              required
+              minlength="1"
+              rows="4"
+              [(ngModel)]="repeatedPassword"
+              #description="ngModel"
+            />
+          </td>
+        </tr>
+      </table>
+      <button (click)="signUp()">SIGN UP</button>
+    </form>
+  </div>
+</div>

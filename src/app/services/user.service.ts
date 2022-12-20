@@ -56,7 +56,7 @@ class UserService {
 
   async isUsernameAvailable(username: string) {
     const users = await this.getUsers();
-    return users.some((u) => u.username !== username);
+    return !users.some((u) => u.username === username);
   }
 
   async isUserOnline(username: string) {

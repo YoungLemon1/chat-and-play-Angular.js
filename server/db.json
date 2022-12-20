@@ -1,19 +1,28 @@
 {
   "users": [
     {
+      "id": 0,
       "username": "blaze08",
       "password": "b8",
       "isOnline": false
     },
     {
+      "id": 1,
       "username": "turtle02",
       "password": "t2",
       "isOnline": false
     },
     {
+      "id": 2,
       "username": "himdele60",
       "password": "h6",
       "isOnline": true
+    },
+    {
+      "username": "asdsx",
+      "password": "zJTpDX7iZ63MPZU",
+      "isOnline": false,
+      "id": 3
     }
   ],
   "messages": [

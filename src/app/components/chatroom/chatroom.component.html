@@ -1,4 +1,5 @@
 <h1>{{ currentUsername }} chatting with {{ otherUsername }}</h1>
+<a [routerLink]="['/users-page', currentUsername]">Back</a>
 <hr />
 <div>
   <div *ngFor="let message of messages">

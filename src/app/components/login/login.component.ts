@@ -32,8 +32,4 @@ export class LoginComponent {
         }
       });
   }
-
-  routeToUsersPage(username: string) {
-    this.router.navigate([`users-page/${username}`]);
-  }
 }

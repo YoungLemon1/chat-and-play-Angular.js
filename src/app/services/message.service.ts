@@ -19,8 +19,8 @@ class MessageService {
     return this.httpClient.get<Message[]>(MESSAGES_ENDPOINT);
   }
 
-  create(prod: Message): Observable<Message> {
-    return this.httpClient.post<Message>(MESSAGES_ENDPOINT, prod).pipe(
+  create(message: Message): Observable<Message> {
+    return this.httpClient.post<Message>(MESSAGES_ENDPOINT, message).pipe(
       tap(() => {
         this._refreshNeeded$.next();
       })
