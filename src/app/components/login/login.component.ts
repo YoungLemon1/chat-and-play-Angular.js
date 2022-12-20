@@ -19,11 +19,18 @@ export class LoginComponent {
   authenticateUser() {
     this.service
       .isUserAuthenticated(this.username, this.password)
-      .then((isAuthenticated) =>
-        isAuthenticated
-          ? this.routeToUsersPage(this.username)
-          : alert('username or password are incorrect, try again')
-      );
+      .then(async (isAuthenticated) => {
+        if (isAuthenticated) {
+          const isOnline = await this.service.isUserOnline(this.username);
+          if (isOnline) {
+            alert('user is already logged in');
+          } else {
+            this.service.login(this.username);
+          }
+        } else {
+          alert('user or password are incorrect');
+        }
+      });
   }
 
   routeToUsersPage(username: string) {

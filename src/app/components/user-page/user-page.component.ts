@@ -11,6 +11,7 @@ import UserService from 'src/app/services/user.service';
 })
 export class UserPageComponent implements OnInit {
   username: string = '';
+  password: string = '';
 
   constructor(
     private service: UserService,
@@ -21,5 +22,9 @@ export class UserPageComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.username = params['username'];
     });
+  }
+
+  logout(username: string) {
+    this.service.logout(username);
   }
 }

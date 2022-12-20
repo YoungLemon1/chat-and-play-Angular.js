@@ -1,5 +1,5 @@
 <div>
   <h2>Welcome {{ username }}!</h2>
-  <a [routerLink]="['/']">Sign out</a>
+  <button (click)="logout(username)">LOGOUT</button>
   <app-personal-user-list [username]="username"></app-personal-user-list>
 </div>

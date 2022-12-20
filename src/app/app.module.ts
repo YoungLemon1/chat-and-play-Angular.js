@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { LoginComponent } from './components/login/login.component';
 import MessageService from './services/message.service';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import MessageService from './services/message.service';
     UserPageComponent,
     PersonalUserListComponent,
     ChatroomComponent,
+    SignUpComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [UserService, MessageService],

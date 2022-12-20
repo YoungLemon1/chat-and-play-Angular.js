@@ -3,17 +3,17 @@
     {
       "username": "blaze08",
       "password": "b8",
-      "isOnline": "true"
+      "isOnline": false
     },
     {
       "username": "turtle02",
       "password": "t2",
-      "isOnline": "true"
+      "isOnline": false
     },
     {
       "username": "himdele60",
       "password": "h6",
-      "isOnline": "false"
+      "isOnline": true
     }
   ],
   "messages": [
@@ -30,69 +30,6 @@
       "recipientUsername": "blaze08",
       "text": "whatsup?",
       "createdTime": "Sun Dec 18 2022 10:21:21 GMT+0200 (Israel Standard Time)"
-    },
-    {
-      "senderUsername": "blaze08",
-      "recipientUsername": "turtle02",
-      "text": "jhj",
-      "createdTime": "2022-12-20T07:51:33.466Z",
-      "id": 2
-    },
-    {
-      "senderUsername": "turtle02",
-      "recipientUsername": "blaze08",
-      "text": "hjhj",
-      "createdTime": "2022-12-20T07:51:35.027Z",
-      "id": 3
-    },
-    {
-      "senderUsername": "blaze08",
-      "recipientUsername": "turtle02",
-      "text": "jj",
-      "createdTime": "2022-12-20T07:51:43.071Z",
-      "id": 4
-    },
-    {
-      "senderUsername": "blaze08",
-      "recipientUsername": "turtle02",
-      "text": "testing",
-      "createdTime": "2022-12-20T07:52:14.858Z",
-      "id": 5
-    },
-    {
-      "senderUsername": "blaze08",
-      "recipientUsername": "turtle02",
-      "text": "cool",
-      "createdTime": "2022-12-20T08:14:44.401Z",
-      "id": 6
-    },
-    {
-      "senderUsername": "blaze08",
-      "recipientUsername": "turtle02",
-      "text": "testing",
-      "createdTime": "2022-12-20T08:14:52.694Z",
-      "id": 7
-    },
-    {
-      "senderUsername": "blaze08",
-      "recipientUsername": "turtle02",
-      "text": "s",
-      "createdTime": "2022-12-20T08:15:11.392Z",
-      "id": 8
-    },
-    {
-      "senderUsername": "blaze08",
-      "recipientUsername": "turtle02",
-      "text": "gfhfgfgh",
-      "createdTime": "2022-12-20T08:15:53.065Z",
-      "id": 9
-    },
-    {
-      "senderUsername": "turtle02",
-      "recipientUsername": "blaze08",
-      "text": "dd",
-      "createdTime": "2022-12-20T08:16:00.267Z",
-      "id": 10
     }
   ]
 }
