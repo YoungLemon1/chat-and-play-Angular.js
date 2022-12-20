@@ -27,6 +27,7 @@
               id="password"
               name="password"
               class="form-control"
+              type="password"
               required
               minlength="1"
               rows="4"
@@ -36,7 +37,12 @@
           </td>
         </tr>
       </table>
-      <button (click)="authenticateUser()">LOG IN</button>
+      <button
+        (click)="authenticateUser()"
+        [disabled]="username === '' || password === ''"
+      >
+        LOG IN
+      </button>
     </form>
     <button>SIGN UP</button>
   </div>

@@ -50,6 +50,10 @@ class MessageService {
 
     const response = await fetch(MESSAGES_ENDPOINT, requestOptions);
   }
+
+  requestRefresh() {
+    this._refreshNeeded$.next();
+  }
 }
 
 export default MessageService;

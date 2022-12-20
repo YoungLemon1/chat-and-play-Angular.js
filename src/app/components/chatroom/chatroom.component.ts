@@ -20,6 +20,21 @@ export class ChatroomComponent implements OnInit {
   text: string = '';
 
   ngOnInit() {
+    const chatroom = this;
+    async function refresh() {
+      const allMessages = await chatroom.messageService.getMessages();
+      const chatMessages = chatroom.organizeMessages(allMessages);
+      if (chatMessages.length > chatroom.messages.length) {
+        console.log('entered if');
+        chatroom.messageService.refresNeeded$.next();
+      }
+      // make Ajax call here, inside the callback call:
+      setTimeout(refresh, 2000);
+      // ...
+    }
+
+    // initial call, or just call refresh directly
+    setTimeout(refresh, 2000);
     this.route.queryParams.subscribe((params) => {
       this.currentUsername = params['currentUsername'];
       this.otherUsername = params['otherUsername'];
@@ -34,18 +49,21 @@ export class ChatroomComponent implements OnInit {
 
   private getChatMessages() {
     this.messageService.get().subscribe((res) => {
-      this.messages = res
-        .filter(
-          (m) =>
-            (m.senderUsername === this.currentUsername &&
-              m.recipientUsername === this.otherUsername) ||
-            (m.senderUsername === this.otherUsername &&
-              m.recipientUsername === this.currentUsername)
-        )
-        .sort(
-          (objA, objB) => Number(objA.createdTime) - Number(objB.createdTime)
-        );
+      this.messages = this.organizeMessages(res);
     });
+  }
+  organizeMessages(messages: Message[]) {
+    return messages
+      .filter(
+        (m) =>
+          (m.senderUsername === this.currentUsername &&
+            m.recipientUsername === this.otherUsername) ||
+          (m.senderUsername === this.otherUsername &&
+            m.recipientUsername === this.currentUsername)
+      )
+      .sort(
+        (objA, objB) => Number(objA.createdTime) - Number(objB.createdTime)
+      );
   }
 
   sendMessage() {
