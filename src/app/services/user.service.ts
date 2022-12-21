@@ -1,17 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { findIndex, Observable } from 'rxjs';
+import { findIndex, Observable, Subject } from 'rxjs';
 import User from 'src/app/models/user.model';
 
 const USERS_ENDPOINT = 'http://localhost:3000/users/';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    Authorization: 'my-auth-token',
-  }),
-};
 
 @Injectable()
 class UserService {

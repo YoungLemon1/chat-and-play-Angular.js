@@ -16,13 +16,18 @@ export class PersonalUserListComponent implements OnInit {
   onlineUsers: User[] = [];
   offlineUsers: User[] = [];
 
-  constructor(private service: UserService, private route: ActivatedRoute) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.service.get().subscribe((res) => {
+    this.initLists();
+    setInterval(() => this.initLists(), 2000);
+  }
+
+  initLists() {
+    this.userService.getUsers().then((res) => {
       this.userList = res.filter((u) => u.username !== this.username);
-      this.onlineUsers = this.userList.filter((u) => u.isOnline === true);
-      this.offlineUsers = this.userList.filter((u) => u.isOnline === false);
+      this.onlineUsers = this.userList.filter((u) => u.isOnline);
+      this.offlineUsers = this.userList.filter((u) => !u.isOnline);
     });
   }
 }

@@ -20,26 +20,23 @@ export class ChatroomComponent implements OnInit {
   text: string = '';
 
   ngOnInit() {
-    const chatroom = this;
-    async function refresh() {
-      const allMessages = await chatroom.messageService.getMessages();
-      const chatMessages = chatroom.organizeMessages(allMessages);
-      if (chatMessages.length > chatroom.messages.length) {
-        console.log('entered if');
-        chatroom.messageService.refresNeeded$.next();
-      }
-      // make Ajax call here, inside the callback call:
-      setTimeout(refresh, 2000);
-      // ...
-    }
+    // const refresh = async () => {
+    //   const allMessages = await this.messageService.getMessages();
+    //   const chatMessages = this.organizeMessages(allMessages);
+    //   if (chatMessages.length > this.messages.length) {
+    //     console.log('entered if');
+    //     this.messageService.refreshNeeded$.next();
+    //   }
+    // };
 
-    // initial call, or just call refresh directly
-    setTimeout(refresh, 2000);
+    setInterval(() => {
+      this.messageService.refreshNeeded$.next();
+    }, 2000);
     this.route.queryParams.subscribe((params) => {
       this.currentUsername = params['currentUsername'];
       this.otherUsername = params['otherUsername'];
 
-      this.messageService.refresNeeded$.subscribe(() => {
+      this.messageService.refreshNeeded$.subscribe(() => {
         this.getChatMessages();
       });
 
@@ -52,6 +49,7 @@ export class ChatroomComponent implements OnInit {
       this.messages = this.organizeMessages(res);
     });
   }
+
   organizeMessages(messages: Message[]) {
     return messages
       .filter(

@@ -10,12 +10,10 @@ import UserService from 'src/app/services/user.service';
   styleUrls: ['./user-page.component.css'],
 })
 export class UserPageComponent implements OnInit {
-  id: number = -1;
   username: string = '';
-  password: string = '';
 
   constructor(
-    private service: UserService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -26,9 +24,8 @@ export class UserPageComponent implements OnInit {
   }
 
   logout(username: string) {
-    this.service.getUsersID(username).then((id) => {
-      this.id = id;
-      this.service.logout(username, id);
+    this.userService.getUsersID(username).then((id) => {
+      this.userService.logout(username, id);
     });
   }
 }

@@ -11,7 +11,7 @@ class MessageService {
   constructor(private httpClient: HttpClient) {}
 
   private _refreshNeeded$ = new Subject<void>();
-  get refresNeeded$() {
+  get refreshNeeded$() {
     return this._refreshNeeded$;
   }
 
