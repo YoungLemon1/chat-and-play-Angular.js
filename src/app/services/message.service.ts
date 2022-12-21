@@ -4,27 +4,18 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-const MESSAGES_ENDPOINT = 'http://localhost:3000/messages/';
+const MESSAGES_ENDPOINT = 'http://localhost:3000/messages';
 
 @Injectable()
 class MessageService {
   constructor(private httpClient: HttpClient) {}
-
-  private _refreshNeeded$ = new Subject<void>();
-  get refreshNeeded$() {
-    return this._refreshNeeded$;
-  }
 
   get(): Observable<Message[]> {
     return this.httpClient.get<Message[]>(MESSAGES_ENDPOINT);
   }
 
   create(message: Message): Observable<Message> {
-    return this.httpClient.post<Message>(MESSAGES_ENDPOINT, message).pipe(
-      tap(() => {
-        this._refreshNeeded$.next();
-      })
-    );
+    return this.httpClient.post<Message>(MESSAGES_ENDPOINT, message);
   }
 
   delete(id: number): Observable<Message> {
@@ -48,11 +39,7 @@ class MessageService {
       body: JSON.stringify(message),
     };
 
-    const response = await fetch(MESSAGES_ENDPOINT, requestOptions);
-  }
-
-  requestRefresh() {
-    this._refreshNeeded$.next();
+    return fetch(MESSAGES_ENDPOINT, requestOptions);
   }
 }
 

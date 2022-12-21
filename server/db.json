@@ -16,12 +16,12 @@
       "id": 2,
       "username": "Heimdall60",
       "password": "h6",
-      "isOnline": true
+      "isOnline": false
     },
     {
       "username": "asdsx",
       "password": "zJTpDX7iZ63MPZU",
-      "isOnline": true,
+      "isOnline": false,
       "id": 3
     }
   ],
@@ -53,6 +53,14 @@
       "text": "hello",
       "createdTime": "2022-12-20T19:17:36.372Z",
       "id": 3
+    },
+    {
+      "senderUsername": "turtle02",
+      "recipientUsername": "blaze08",
+      "text": "cool",
+      "createdTime": "2022-12-21T08:44:49.771Z",
+      "id": 4
     }
-  ]
+  ],
+  "game-invites": []
 }

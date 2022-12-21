@@ -20,31 +20,15 @@ export class ChatroomComponent implements OnInit {
   text: string = '';
 
   ngOnInit() {
-    // const refresh = async () => {
-    //   const allMessages = await this.messageService.getMessages();
-    //   const chatMessages = this.organizeMessages(allMessages);
-    //   if (chatMessages.length > this.messages.length) {
-    //     console.log('entered if');
-    //     this.messageService.refreshNeeded$.next();
-    //   }
-    // };
-
-    setInterval(() => {
-      this.messageService.refreshNeeded$.next();
-    }, 2000);
+    setInterval(() => this.getChatMessages(), 2000);
     this.route.queryParams.subscribe((params) => {
       this.currentUsername = params['currentUsername'];
       this.otherUsername = params['otherUsername'];
-
-      this.messageService.refreshNeeded$.subscribe(() => {
-        this.getChatMessages();
-      });
-
       this.getChatMessages();
     });
   }
 
-  private getChatMessages() {
+  getChatMessages() {
     this.messageService.get().subscribe((res) => {
       this.messages = this.organizeMessages(res);
     });
