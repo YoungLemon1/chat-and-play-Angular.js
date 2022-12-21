@@ -6,9 +6,12 @@ class GameInvite extends Message {
     recipientUsername: string,
     text: string,
     inviteLink: string,
+    gameTitle: string,
     createdTime: Date
   ) {
     super(senderUsername, recipientUsername, text, createdTime);
+    gameTitle = '####';
     inviteLink = '';
   }
 }
+export default GameInvite;

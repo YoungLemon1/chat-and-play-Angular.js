@@ -1,7 +1,10 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import Game from 'src/app/models/game';
+import GameInvite from 'src/app/models/game-invite.model';
 import Message from 'src/app/models/message.model';
+import GameService from 'src/app/services/game.service';
 import MessageService from 'src/app/services/message.service';
 
 @Component({
@@ -12,12 +15,16 @@ import MessageService from 'src/app/services/message.service';
 export class ChatroomComponent implements OnInit {
   constructor(
     private messageService: MessageService,
+    private gameServices: GameService,
     private route: ActivatedRoute
   ) {}
   currentUsername: string = '';
   otherUsername: string = '';
   messages: Message[] = [];
   text: string = '';
+  showGames: boolean = false;
+  games: Game[] = [];
+  inviteLink: string = '';
 
   ngOnInit() {
     setInterval(() => this.getChatMessages(), 2000);
@@ -26,6 +33,8 @@ export class ChatroomComponent implements OnInit {
       this.otherUsername = params['otherUsername'];
       this.getChatMessages();
     });
+
+    this.gameServices.get().subscribe((games) => (this.games = games));
   }
 
   getChatMessages() {
@@ -58,5 +67,26 @@ export class ChatroomComponent implements OnInit {
     );
     this.text = '';
     this.messageService.create(message).subscribe();
+  }
+
+  isMessageGameInvite(message: Message) {
+    return message instanceof GameInvite;
+  }
+
+  openGameSelection() {
+    this.showGames = !this.showGames;
+  }
+
+  inviteToGame(link: string, title: string) {
+    let currentDate = new Date();
+    let invite = new GameInvite(
+      this.currentUsername,
+      this.otherUsername,
+      this.text,
+      link,
+      title,
+      currentDate
+    );
+    this.messageService.create(invite).subscribe();
   }
 }

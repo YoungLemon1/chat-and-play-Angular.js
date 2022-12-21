@@ -11,6 +11,10 @@ import { ChatroomComponent } from './components/chatroom/chatroom.component';
 import { LoginComponent } from './components/login/login.component';
 import MessageService from './services/message.service';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { RockPaperScissorsComponent } from './components/games/rock-paper-scissors/rock-paper-scissors.component';
+import GameService from './services/game.service';
+import GameInviteService from './services/game-invite.service';
+import { GameComponent } from './components/game/game.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +24,11 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     PersonalUserListComponent,
     ChatroomComponent,
     SignUpComponent,
+    RockPaperScissorsComponent,
+    GameComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [UserService, MessageService],
+  providers: [UserService, MessageService, GameService, GameInviteService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

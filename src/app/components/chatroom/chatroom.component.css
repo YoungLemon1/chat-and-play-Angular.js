@@ -1,3 +1,43 @@
-button {
-  margin: 4px;
+#message-from input {
+  margin-right: 0.12px;
+  padding: 0;
+  padding-left: 4px;
+  border-style: solid;
+  border-radius: 0%;
+}
+
+#message-from * {
+  height: 35px;
+}
+
+#game-selection ul {
+  padding: 0px;
+}
+
+#games-ul {
+  margin: 8px;
+}
+
+#games li {
+  list-style: none;
+  display: inline;
+  margin-right: 4px;
+  padding-left: 0px;
+}
+
+.game-link {
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: 4px;
+}
+.game-link img {
+  width: 140px;
+}
+.game-link figcaption {
+  text-align: center;
+}
+
+.game-link:hover {
+  cursor: pointer;
+  background-color: aliceblue;
 }

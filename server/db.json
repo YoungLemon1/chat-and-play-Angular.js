@@ -60,7 +60,24 @@
       "text": "cool",
       "createdTime": "2022-12-21T08:44:49.771Z",
       "id": 4
+    },
+    {
+      "senderUsername": "turtle02",
+      "recipientUsername": "blaze08",
+      "text": "jj",
+      "createdTime": "2022-12-21T09:35:20.464Z",
+      "id": 5
     }
   ],
-  "game-invites": []
+  "game-invites": [],
+  "games": [
+    {
+      "id": 0,
+      "title": "Rock Paper Scissors",
+      "imageURL": "https://miro.medium.com/max/640/1*G9UfaUBS_VqtFILMe37fZw.webp",
+      "link": "",
+      "isPlayer1Ready": false,
+      "isPlayer2Ready": false
+    }
+  ]
 }

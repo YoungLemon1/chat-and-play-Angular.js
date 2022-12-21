@@ -27,23 +27,14 @@ export class SignUpComponent {
       return;
     }
     const user = new User(this.username, this.password, false);
-    this.userService.isUsernameAvailable(this.username).then(
-      (b) => {
-        if (b) {
-          this.userService.create(user).subscribe();
-          alert('User created');
-          this.router.navigate([`/`]);
-        } else {
-          alert(`Username "${this.username}" already exists`);
-        }
+    this.userService.isUsernameAvailable(this.username).then((b) => {
+      if (b) {
+        this.userService.create(user).subscribe();
+        alert('User created');
+        this.router.navigate([`/`]);
+      } else {
+        alert(`Username "${this.username}" already exists`);
       }
-      /* b
-        ? (service = this.userService) => {
-            service.create(user).subscribe();
-            alert('user created');
-            this.router.navigate([`/`]);
-          }
-        : alert(`username "${this.username}" already exists`) */
-    );
+    });
   }
 }
