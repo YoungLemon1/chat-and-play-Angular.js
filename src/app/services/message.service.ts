@@ -26,6 +26,10 @@ class MessageService {
     return this.httpClient.get<Message>(MESSAGES_ENDPOINT + id);
   }
 
+  getInviteById(id: string): Observable<GameInvite> {
+    return this.httpClient.get<GameInvite>(MESSAGES_ENDPOINT + id);
+  }
+
   update(id: string, message:Message): Observable<Message> {
     return this.httpClient.put<Message>(MESSAGES_ENDPOINT + id, message);
   }
