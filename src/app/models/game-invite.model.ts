@@ -7,11 +7,13 @@ class GameInvite extends Message {
     text: string,
     createdTime: Date,
     public inviteLink: string,
-    public gameTitle: string
+    public gameTitle: string,
+    public inviteStatus: boolean | null
   ) {
     super(senderUsername, recipientUsername, text, createdTime);
-    gameTitle = '####';
+    gameTitle = '';
     inviteLink = '';
+    inviteStatus = null;
   }
 }
 export default GameInvite;

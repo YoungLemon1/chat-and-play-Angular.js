@@ -28,9 +28,18 @@
       <h4>
         {{ message.text }}
       </h4>
-      <a [routerLink]="['/games' + message.inviteLink]"
-        ><button>Play</button></a
-      >
+      <div *ngIf="otherUsername === message.recipientUsername">
+        <a
+          [routerLink]="['/games' + message.inviteLink]"
+          [queryParams]="{
+            currentPlayer: currentUsername,
+            player1: message.senderUsername,
+            player2: message.recipientUsername
+          }"
+          ><button (click)="submitInviteResponse(message.getId()!, true)">Accept</button></a
+        >
+        <button (click)="submitInviteResponse(message.getId()!, false)">Decline</button>
+      </div>
     </div>
     <div *ngIf="!isMessageGameInvite(message)">
       <label>{{ message.senderUsername }}</label>

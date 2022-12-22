@@ -12,8 +12,7 @@ export class UserPageComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => {

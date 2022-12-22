@@ -5,7 +5,6 @@ import { RockPaperScissorsComponent } from './components/games/rock-paper-scisso
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
-import Game from './models/game';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },

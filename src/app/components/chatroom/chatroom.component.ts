@@ -99,9 +99,14 @@ export class ChatroomComponent implements OnInit {
       this.text,
       currentDate,
       link,
-      title
+      title,
+      null
     );
     this.messageService.create(invite).subscribe();
     this.text = '';
+  }
+
+  submitInviteResponse(id:string, inviteStatus:boolean){
+    
   }
 }
