@@ -5,9 +5,9 @@ class GameInvite extends Message {
     senderUsername: string,
     recipientUsername: string,
     text: string,
+    createdTime: Date,
     public inviteLink: string,
-    public gameTitle: string,
-    createdTime: Date
+    public gameTitle: string
   ) {
     super(senderUsername, recipientUsername, text, createdTime);
     gameTitle = '####';

@@ -97,9 +97,9 @@ export class ChatroomComponent implements OnInit {
       this.currentUsername,
       this.otherUsername,
       this.text,
+      currentDate,
       link,
-      title,
-      currentDate
+      title
     );
     this.messageService.create(invite).subscribe();
     this.text = '';
