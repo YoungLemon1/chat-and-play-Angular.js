@@ -9,34 +9,40 @@
 
     <ng-template #gameInvite>
       <div>
-        <h6>
-          {{ message.senderUsername }} has invited
-          {{ message.recipientUsername }} to play {{ message.title }}
-        </h6>
+        <h4>
+          {{ message.text }}
+        </h4>
+        <a [routerLink]="['/games/' + message.gameTitle]"> Play</a>
       </div>
     </ng-template>
     <ng-template #textMessage>
       <label>{{ message.senderUsername }}</label>
-      <p>{{ message.text }}</p>
+      <p>{{ message.text }}</p>b 
       <p>{{ message.createdTime | date : "HH:MM" }}</p>
-      <hr />
     </ng-template>
+    <hr />
   </div> -->
 
-  <div *ngFor="let message of messages">
+  <div *ngFor="let message of chatMessages">
+    <div class="game-invite" *ngIf="isMessageGameInvite(message)">
+      <h4>
+        {{ message.text }}
+      </h4>
+      <a [routerLink]="['/games/' + message.gameTitle]"> Play</a>
+    </div>
     <div *ngIf="!isMessageGameInvite(message)">
       <label>{{ message.senderUsername }}</label>
       <p>{{ message.text }}</p>
       <p>{{ message.createdTime | date : "HH:MM" }}</p>
-      <hr />
     </div>
+    <hr />
   </div>
 
   <div id="message-bar">
     <form id="message-from">
       <input
-        id="messageText"
-        name="messageText"
+        id="message-text-input"
+        name="message-text-input"
         type="text"
         class="form-control"
         required
@@ -46,8 +52,14 @@
         #name="ngModel"
         placeholder="Write something..."
       />
-      <button (click)="openGameSelection()">🚀</button>
-      <button [disabled]="text === ''" (click)="sendMessage()">Send</button>
+      <button id="send-invite-btn" (click)="openGameSelection()">🚀</button>
+      <button
+        id="send-message-btn"
+        [disabled]="text === ''"
+        (click)="sendMessage()"
+      >
+        Send
+      </button>
     </form>
   </div>
   <div id="game-selection" *ngIf="showGames">

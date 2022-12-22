@@ -24,22 +24,6 @@ class MessageService {
   getById(id: number): Observable<Message> {
     return this.httpClient.get<Message>(MESSAGES_ENDPOINT + id);
   }
-
-  async getMessages() {
-    const res = await fetch(MESSAGES_ENDPOINT);
-    const data = await res.json();
-    return data as Message[];
-  }
-
-  async createMessage(message: Message) {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(message),
-    };
-
-    return fetch(MESSAGES_ENDPOINT, requestOptions);
-  }
 }
 
 export default MessageService;

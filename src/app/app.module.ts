@@ -13,7 +13,6 @@ import MessageService from './services/message.service';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { RockPaperScissorsComponent } from './components/games/rock-paper-scissors/rock-paper-scissors.component';
 import GameService from './services/game.service';
-import GameInviteService from './services/game-invite.service';
 import { GameComponent } from './components/game/game.component';
 
 @NgModule({
@@ -28,7 +27,7 @@ import { GameComponent } from './components/game/game.component';
     GameComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [UserService, MessageService, GameService, GameInviteService],
+  providers: [UserService, MessageService, GameService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

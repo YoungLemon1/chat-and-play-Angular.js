@@ -3,7 +3,7 @@
     {
       "username": "blaze08",
       "password": "b8",
-      "isOnline": true,
+      "isOnline": false,
       "id": 0
     },
     {
@@ -16,7 +16,7 @@
       "id": 2,
       "username": "Heimdall60",
       "password": "h6",
-      "isOnline": false
+      "isOnline": true
     },
     {
       "username": "asdsx",
@@ -39,43 +39,14 @@
       "recipientUsername": "blaze08",
       "text": "whatsup?",
       "createdTime": "Sun Dec 18 2022 10:21:21 GMT+0200 (Israel Standard Time)"
-    },
-    {
-      "senderUsername": "blaze08",
-      "recipientUsername": "himdele60",
-      "text": "hi",
-      "createdTime": "2022-12-20T19:17:32.001Z",
-      "id": 2
-    },
-    {
-      "senderUsername": "turtle02",
-      "recipientUsername": "himdele60",
-      "text": "hello",
-      "createdTime": "2022-12-20T19:17:36.372Z",
-      "id": 3
-    },
-    {
-      "senderUsername": "turtle02",
-      "recipientUsername": "blaze08",
-      "text": "cool",
-      "createdTime": "2022-12-21T08:44:49.771Z",
-      "id": 4
-    },
-    {
-      "senderUsername": "turtle02",
-      "recipientUsername": "blaze08",
-      "text": "jj",
-      "createdTime": "2022-12-21T09:35:20.464Z",
-      "id": 5
     }
   ],
-  "game-invites": [],
   "games": [
     {
       "id": 0,
-      "title": "Rock Paper Scissors",
+      "title": "rock-paper-scissors",
       "imageURL": "https://miro.medium.com/max/640/1*G9UfaUBS_VqtFILMe37fZw.webp",
-      "link": "",
+      "link": "games/rock-paper-scissors",
       "isPlayer1Ready": false,
       "isPlayer2Ready": false
     }

@@ -25,6 +25,11 @@
   padding-left: 0px;
 }
 
+.game-invite {
+  padding: 6px;
+  background-color: rgba(20, 218, 135, 0.709);
+}
+
 .game-link {
   display: inline-block;
   margin-left: 0px;

@@ -20,7 +20,7 @@ export class ChatroomComponent implements OnInit {
   ) {}
   currentUsername: string = '';
   otherUsername: string = '';
-  messages: Message[] = [];
+  chatMessages: Message[] = [];
   text: string = '';
   showGames: boolean = false;
   games: Game[] = [];
@@ -34,12 +34,25 @@ export class ChatroomComponent implements OnInit {
       this.getChatMessages();
     });
 
+    let input = document.getElementById('message-text-input')!;
+
+    // Execute a function when the user presses a key on the keyboard
+    input.addEventListener('keypress', function (event) {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === 'Enter') {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById('send-message-btn')!.click();
+      }
+    });
+
     this.gameServices.get().subscribe((games) => (this.games = games));
   }
 
   getChatMessages() {
     this.messageService.get().subscribe((res) => {
-      this.messages = this.organizeMessages(res);
+      this.chatMessages = this.organizeMessages(res);
     });
   }
 
@@ -69,8 +82,8 @@ export class ChatroomComponent implements OnInit {
     this.messageService.create(message).subscribe();
   }
 
-  isMessageGameInvite(message: Message) {
-    return message instanceof GameInvite;
+  isMessageGameInvite(message: Message): message is GameInvite {
+    return 'inviteLink' in message;
   }
 
   openGameSelection() {
@@ -79,6 +92,7 @@ export class ChatroomComponent implements OnInit {
 
   inviteToGame(link: string, title: string) {
     let currentDate = new Date();
+    this.text = `${this.currentUsername} has invited ${this.otherUsername} to play ${title}!`;
     let invite = new GameInvite(
       this.currentUsername,
       this.otherUsername,
@@ -88,5 +102,6 @@ export class ChatroomComponent implements OnInit {
       currentDate
     );
     this.messageService.create(invite).subscribe();
+    this.text = '';
   }
 }

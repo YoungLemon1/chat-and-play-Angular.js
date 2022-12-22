@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'users-page/:username', component: UserPageComponent },
   { path: 'chatroom', component: ChatroomComponent },
   { path: 'games/rock-paper-scissors', component: RockPaperScissorsComponent },
-  { path: 'games', component: GameComponent },
 ];
 
 @NgModule({
