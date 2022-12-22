@@ -28,7 +28,9 @@
       <h4>
         {{ message.text }}
       </h4>
-      <a [routerLink]="['/games/' + message.gameTitle]"> Play</a>
+      <a [routerLink]="['/games' + message.inviteLink]"
+        ><button>Play</button></a
+      >
     </div>
     <div *ngIf="!isMessageGameInvite(message)">
       <label>{{ message.senderUsername }}</label>

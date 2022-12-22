@@ -3,14 +3,14 @@
     {
       "username": "blaze08",
       "password": "b8",
-      "isOnline": false,
+      "isOnline": true,
       "id": 0
     },
     {
       "id": 1,
       "username": "turtle02",
       "password": "t2",
-      "isOnline": true
+      "isOnline": false
     },
     {
       "id": 2,
@@ -39,14 +39,23 @@
       "recipientUsername": "blaze08",
       "text": "whatsup?",
       "createdTime": "Sun Dec 18 2022 10:21:21 GMT+0200 (Israel Standard Time)"
+    },
+    {
+      "senderUsername": "Heimdall60",
+      "recipientUsername": "blaze08",
+      "text": "Heimdall60 has invited blaze08 to play Rock Paper Scissors!",
+      "createdTime": "2022-12-22T17:46:30.629Z",
+      "inviteLink": "/rock-paper-scissors",
+      "gameTitle": "Rock Paper Scissors",
+      "id": 2
     }
   ],
   "games": [
     {
       "id": 0,
-      "title": "rock-paper-scissors",
+      "title": "Rock Paper Scissors",
       "imageURL": "https://miro.medium.com/max/640/1*G9UfaUBS_VqtFILMe37fZw.webp",
-      "link": "games/rock-paper-scissors",
+      "link": "/rock-paper-scissors",
       "isPlayer1Ready": false,
       "isPlayer2Ready": false
     }

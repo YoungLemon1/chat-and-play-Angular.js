@@ -13,7 +13,6 @@ import MessageService from './services/message.service';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { RockPaperScissorsComponent } from './components/games/rock-paper-scissors/rock-paper-scissors.component';
 import GameService from './services/game.service';
-import { GameComponent } from './components/game/game.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { GameComponent } from './components/game/game.component';
     ChatroomComponent,
     SignUpComponent,
     RockPaperScissorsComponent,
-    GameComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [UserService, MessageService, GameService],
