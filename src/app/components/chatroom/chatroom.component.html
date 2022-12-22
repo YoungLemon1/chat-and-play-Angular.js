@@ -28,17 +28,14 @@
       <h4>
         {{ message.text }}
       </h4>
-      <div *ngIf="otherUsername === message.recipientUsername">
-        <a
-          [routerLink]="['/games' + message.inviteLink]"
-          [queryParams]="{
-            currentPlayer: currentUsername,
-            player1: message.senderUsername,
-            player2: message.recipientUsername
-          }"
-          ><button (click)="submitInviteResponse(message.getId()!, true)">Accept</button></a
-        >
-        <button (click)="submitInviteResponse(message.getId()!, false)">Decline</button>
+      <div *ngIf="currentUsername === message.recipientUsername && message.inviteStatus === null">
+        <button (click)="submitInviteResponse(message.id, true)">
+          Accept
+        </button>
+
+        <button (click)="submitInviteResponse(message.id, false)">
+          Decline
+        </button>
       </div>
     </div>
     <div *ngIf="!isMessageGameInvite(message)">
@@ -76,7 +73,7 @@
   <div id="game-selection" *ngIf="showGames">
     <ul id="games" *ngFor="let game of games">
       <li id="rock-paper-scissors">
-        <figure class="game-link" (click)="inviteToGame(game.link, game.title)">
+        <figure class="game-link" (click)="inviteToGame(game.id!, game.link)">
           <img src="{{ game.imageURL }}" alt="{{ game.title }}" />
           <figcaption>{{ game.title }}</figcaption>
         </figure>

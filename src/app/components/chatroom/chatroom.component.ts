@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import Game from 'src/app/models/game';
+import { ActivatedRoute, Router } from '@angular/router';
+import Game from 'src/app/models/game.model';
 import GameInvite from 'src/app/models/game-invite.model';
 import Message from 'src/app/models/message.model';
 import GameService from 'src/app/services/game.service';
@@ -16,7 +16,8 @@ export class ChatroomComponent implements OnInit {
   constructor(
     private messageService: MessageService,
     private gameServices: GameService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   currentUsername: string = '';
   otherUsername: string = '';
@@ -90,23 +91,35 @@ export class ChatroomComponent implements OnInit {
     this.showGames = !this.showGames;
   }
 
-  inviteToGame(link: string, title: string) {
-    let currentDate = new Date();
-    this.text = `${this.currentUsername} has invited ${this.otherUsername} to play ${title}!`;
-    let invite = new GameInvite(
+  inviteToGame(gameId:number, link: string) {
+    const currentDate = new Date();
+    this.gameServices.getById(gameId).subscribe((game) => { this.text = `${this.currentUsername} has invited ${this.otherUsername} to play ${game.title}!`;});
+    const invite = new GameInvite(
       this.currentUsername,
       this.otherUsername,
       this.text,
       currentDate,
+      gameId,
       link,
-      title,
       null
     );
     this.messageService.create(invite).subscribe();
     this.text = '';
   }
 
-  submitInviteResponse(id:string, inviteStatus:boolean){
-    let invite = this.messageService.getById(id)
+  submitInviteResponse(id: string, inviteStatus: boolean) {
+    const messageService = this.messageService;
+    const text = inviteStatus ? 'Invite accepted' : 'Invite declined';
+    messageService.getInviteById(id).subscribe((invite) => {
+      const replaceInvite: GameInvite = {
+        ...invite,
+        text,
+        inviteStatus,
+      };
+      messageService.update(invite.id, replaceInvite).subscribe();
+      if (inviteStatus) {
+        this.gameServices.createGameSession(invite.gameId, invite.senderUsername, invite.senderUsername);
+      }
+    });
   }
 }

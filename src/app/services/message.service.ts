@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import GameInvite from '../models/game-invite.model';
 
-const MESSAGES_ENDPOINT = 'http://localhost:3000/messages';
+const MESSAGES_ENDPOINT = 'http://localhost:3000/messages/';
 
 @Injectable()
 class MessageService {
@@ -30,13 +30,15 @@ class MessageService {
     return this.httpClient.get<GameInvite>(MESSAGES_ENDPOINT + id);
   }
 
-  update(id: string, message:Message): Observable<Message> {
+  update(id: string, message: Message): Observable<Message> {
     return this.httpClient.put<Message>(MESSAGES_ENDPOINT + id, message);
   }
 
-  patchInviteStatus(invite: GameInvite, inviteStatus: boolean)
-  {
-    return this.httpClient.patch<GameInvite>(MESSAGES_ENDPOINT + invite.getId(), {inviteStatus: {inviteStatus}});
+  patchInviteStatus(id:string, status: boolean) {
+    return this.httpClient.patch<GameInvite>(MESSAGES_ENDPOINT, {
+      id: id,
+      inviteStatus: status,
+    });
   }
 }
 

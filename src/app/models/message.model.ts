@@ -1,7 +1,7 @@
-import { CreateUUID } from "../utils";
+import { CreateUUID } from '../utils';
 
 class Message {
-  private id: string | undefined;
+  public id: string;
   constructor(
     public senderUsername: string,
     public recipientUsername: string,
@@ -9,10 +9,6 @@ class Message {
     public createdTime: Date
   ) {
     this.id = CreateUUID();
-  }
-
-  public getId() : string | undefined {
-    return this.id;
   }
 }
 
