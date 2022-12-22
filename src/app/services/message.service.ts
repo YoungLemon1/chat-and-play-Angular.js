@@ -30,9 +30,9 @@ class MessageService {
     return this.httpClient.put<Message>(MESSAGES_ENDPOINT + id, message);
   }
 
-  patchInviteStatus(id: string, invite: GameInvite, inviteStatus: boolean)
+  patchInviteStatus(invite: GameInvite, inviteStatus: boolean)
   {
-    return this.httpClient.patch<GameInvite>(MESSAGES_ENDPOINT + id, {inviteStatus: {inviteStatus}});
+    return this.httpClient.patch<GameInvite>(MESSAGES_ENDPOINT + invite.getId(), {inviteStatus: {inviteStatus}});
   }
 }
 
