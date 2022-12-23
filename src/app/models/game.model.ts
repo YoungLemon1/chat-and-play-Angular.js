@@ -3,9 +3,7 @@ class Game {
   constructor(
     public title: string,
     public imageURL: string,
-    public link: string,
-    public isPlayer1Ready: boolean,
-    public isPlayer2Ready: boolean
+    public link: string
   ) {}
 }
 export default Game;

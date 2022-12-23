@@ -43,35 +43,41 @@
     {
       "senderUsername": "turtle02",
       "recipientUsername": "blaze08",
-      "text": "Hey",
-      "createdTime": "2022-12-22T21:28:49.885Z",
-      "id": "f28069d1-422a-4023-8954-d5df6a798ed9"
-    },
-    {
-      "senderUsername": "turtle02",
-      "recipientUsername": "blaze08",
       "text": "Invite accepted",
-      "createdTime": "2022-12-22T21:35:50.267Z",
-      "id": "6da14ea0-fcad-4367-b63c-fe452f01b7ef",
+      "createdTime": "2022-12-23T14:11:15.539Z",
+      "id": "a67b5887-7aa4-4c63-9477-2fed49daf43a",
+      "gameId": 0,
       "inviteLink": "/rock-paper-scissors",
-      "gameTitle": "Rock Paper Scissors",
       "inviteStatus": true
     },
     {
       "senderUsername": "blaze08",
       "recipientUsername": "turtle02",
-      "text": "Hey",
-      "createdTime": "2022-12-22T21:52:34.475Z",
-      "id": "bd572076-54c8-4f2d-b75c-490f05f2b064"
+      "text": "Invite accepted",
+      "createdTime": "2022-12-23T14:15:30.977Z",
+      "id": "6bc28006-f0ef-495b-990a-5e2a1b690bf8",
+      "gameId": 0,
+      "inviteLink": "/rock-paper-scissors",
+      "inviteStatus": true
     },
     {
-      "senderUsername": "blaze08",
-      "recipientUsername": "turtle02",
-      "text": "blaze08 has invited turtle02 to play Rock Paper Scissors!",
-      "createdTime": "2022-12-22T22:12:09.507Z",
-      "id": "39cde61a-0a8f-4201-a9ba-16eb693b6e42",
+      "senderUsername": "turtle02",
+      "recipientUsername": "blaze08",
+      "text": "Invite accepted",
+      "createdTime": "2022-12-23T14:18:42.397Z",
+      "id": "3de7145e-8d8d-420b-924c-289c95e24f35",
+      "gameId": 0,
       "inviteLink": "/rock-paper-scissors",
-      "gameTitle": "Rock Paper Scissors",
+      "inviteStatus": true
+    },
+    {
+      "senderUsername": "turtle02",
+      "recipientUsername": "blaze08",
+      "text": "Invite accepted",
+      "createdTime": "2022-12-23T14:20:23.820Z",
+      "id": "ddf574b1-1810-48b7-bbd3-024796b5c61e",
+      "gameId": 0,
+      "inviteLink": "/rock-paper-scissors",
       "inviteStatus": true
     }
   ],
@@ -85,5 +91,30 @@
       "isPlayer2Ready": false
     }
   ],
-  "game-sessions": []
+  "game-sessions": [
+    {
+      "gameId": 0,
+      "player1": "turtle02",
+      "player2": "blaze08",
+      "id": "9a33669b-ae6e-4f96-9852-a5d000a4e957"
+    },
+    {
+      "gameId": 0,
+      "player1": "blaze08",
+      "player2": "turtle02",
+      "id": "b2493dbd-c7a4-4245-ae07-c7a7aa8d5cdf"
+    },
+    {
+      "gameId": 0,
+      "player1": "turtle02",
+      "player2": "blaze08",
+      "id": "b290ed08-31c5-42e9-bfbf-0549a82183b7"
+    },
+    {
+      "gameId": 0,
+      "player1": "turtle02",
+      "player2": "blaze08",
+      "id": "da78005b-8130-4591-b662-1e03f2d81a5e"
+    }
+  ]
 }

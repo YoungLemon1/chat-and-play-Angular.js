@@ -1,5 +1,39 @@
+
+.message{
+  margin: 6px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: rgb(185, 218, 247);
+  border: 1px solid rgb(219, 205, 205);
+  border-radius: 25px;
+  width: fit-content;
+  min-width: 150px;
+  text-align: left;
+}
+
+.message .time-stamp{
+  font-size: smaller;
+}
+
+.message *{
+  margin: 4px;
+}
+
+.game-invite {
+  background-color: rgba(61, 223, 175, 0.921);
+}
+
+.game-invite button {
+  background-color: aliceblue;
+  border-style:inherit;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
 #message-from input {
-  margin-right: 0.12px;
+  margin: 6px;
   padding: 0;
   padding-left: 4px;
   border-style: solid;
@@ -23,11 +57,6 @@
   display: inline;
   margin-right: 4px;
   padding-left: 0px;
-}
-
-.game-invite {
-  padding: 6px;
-  background-color: rgba(20, 218, 135, 0.709);
 }
 
 .game-link {

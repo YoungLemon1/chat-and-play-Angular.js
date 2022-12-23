@@ -34,11 +34,16 @@ class MessageService {
     return this.httpClient.put<Message>(MESSAGES_ENDPOINT + id, message);
   }
 
-  patchInviteStatus(id:string, status: boolean) {
+  patchInviteResponse(id:string, status: boolean, text:string ){
     return this.httpClient.patch<GameInvite>(MESSAGES_ENDPOINT, {
       id: id,
       inviteStatus: status,
+      text: text
     });
+  }
+
+  clearMessages() {
+    this.get().subscribe((messages) => messages = [])
   }
 }
 

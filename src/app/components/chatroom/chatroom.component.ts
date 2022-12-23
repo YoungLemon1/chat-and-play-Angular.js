@@ -6,6 +6,7 @@ import GameInvite from 'src/app/models/game-invite.model';
 import Message from 'src/app/models/message.model';
 import GameService from 'src/app/services/game.service';
 import MessageService from 'src/app/services/message.service';
+import GameSession from 'src/app/models/game-session.model';
 
 @Component({
   selector: 'app-chatroom',
@@ -25,7 +26,6 @@ export class ChatroomComponent implements OnInit {
   text: string = '';
   showGames: boolean = false;
   games: Game[] = [];
-  inviteLink: string = '';
 
   ngOnInit() {
     setInterval(() => this.getChatMessages(), 2000);
@@ -91,9 +91,9 @@ export class ChatroomComponent implements OnInit {
     this.showGames = !this.showGames;
   }
 
-  inviteToGame(gameId:number, link: string) {
+  sendInvite(gameId:number, gameTitle:string, link: string) {
     const currentDate = new Date();
-    this.gameServices.getById(gameId).subscribe((game) => { this.text = `${this.currentUsername} has invited ${this.otherUsername} to play ${game.title}!`;});
+    this.text = `${this.currentUsername} has invited ${this.otherUsername} to play ${gameTitle}`;
     const invite = new GameInvite(
       this.currentUsername,
       this.otherUsername,
@@ -101,9 +101,8 @@ export class ChatroomComponent implements OnInit {
       currentDate,
       gameId,
       link,
-      null
-    );
-    this.messageService.create(invite).subscribe();
+      null);
+    const s = this.messageService.create(invite).subscribe();
     this.text = '';
   }
 
@@ -118,7 +117,8 @@ export class ChatroomComponent implements OnInit {
       };
       messageService.update(invite.id, replaceInvite).subscribe();
       if (inviteStatus) {
-        this.gameServices.createGameSession(invite.gameId, invite.senderUsername, invite.senderUsername);
+        const session = new GameSession(invite.gameId, invite.senderUsername, invite.recipientUsername)
+        this.gameServices.createGameSession(session).subscribe();
       }
     });
   }

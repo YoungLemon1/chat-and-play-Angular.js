@@ -5,6 +5,7 @@ import Game from '../models/game.model';
 import GameSession from '../models/game-session.model';
 
 const GAMES_ENDPOINT = 'http://localhost:3000/games';
+const SESSIONS_ENDPOINT = 'http://localhost:3000/game-sessions';
 
 @Injectable()
 class GameService {
@@ -18,20 +19,8 @@ class GameService {
     return this.httpClient.get<Game>(GAMES_ENDPOINT + id);
   }
 
-  createGameSession(gameId: number, player1: string, player2: string) {
-    const sessionId = this.CreateUUID();
-    return this.httpClient.post<GameSession>;
-  }
-
-  private CreateUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
-      /[xy]/g,
-      function (c) {
-        var r = (Math.random() * 16) | 0,
-          v = c == 'x' ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
-      }
-    );
+  createGameSession(session: GameSession) {
+    return this.httpClient.post<GameSession>(SESSIONS_ENDPOINT, session);
   }
 }
 

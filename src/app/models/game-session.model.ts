@@ -1,11 +1,12 @@
+import { CreateUUID } from '../utils';
 class GameSession {
+  public id:string;
   constructor(
-    private sessionId:string,
     public gameId: number,
     public player1: string,
-    public player2: string,
-    public isPlayer1Ready: boolean,
-    public isPlayer2Ready: boolean
-  ) {}
+    public player2: string
+  ) {
+    this.id = CreateUUID();
+  }
 }
 export default GameSession;

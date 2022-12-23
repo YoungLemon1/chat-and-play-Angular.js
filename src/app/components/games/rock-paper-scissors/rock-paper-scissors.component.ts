@@ -27,9 +27,6 @@ export class RockPaperScissorsComponent implements OnInit {
   ngOnInit(): void {
     this.gameServise.getById(this.session!.gameId).subscribe((game) => {
       this.game = game;
-      if (this.player1 !== '') game.isPlayer1Ready = true;
-      if (this.player2 !== '') game.isPlayer2Ready = true;
-      if (game.isPlayer1Ready && game.isPlayer2Ready) this.gameStart = true;
     });
   }
 

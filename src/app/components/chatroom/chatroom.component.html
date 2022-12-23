@@ -23,27 +23,30 @@
     <hr />
   </div> -->
 
-  <div *ngFor="let message of chatMessages">
-    <div class="game-invite" *ngIf="isMessageGameInvite(message)">
-      <h4>
-        {{ message.text }}
-      </h4>
-      <div *ngIf="currentUsername === message.recipientUsername && message.inviteStatus === null">
-        <button (click)="submitInviteResponse(message.id, true)">
-          Accept
-        </button>
+  <div class="messages" *ngFor="let message of chatMessages">
+    <div class="message" *ngIf="!isMessageGameInvite(message)">
+      <label>{{ message.senderUsername }}</label>
+      <p>{{ message.text }}</p>
+      <p class="time-stamp">{{ message.createdTime | date : "HH:MM" }}</p>
+    </div>
+    <div class="message game-invite" *ngIf="isMessageGameInvite(message)">
+      <div>
+        <h4>{{message.text}}</h4>
+      </div>
+      <div
+        *ngIf="
+          currentUsername === message.recipientUsername &&
+          message.inviteStatus === null
+        "
+      >
+        <button (click)="submitInviteResponse(message.id, true)">Accept</button>
 
         <button (click)="submitInviteResponse(message.id, false)">
           Decline
         </button>
       </div>
+      <p class="time-stamp">{{ message.createdTime | date : "HH:MM" }}</p>
     </div>
-    <div *ngIf="!isMessageGameInvite(message)">
-      <label>{{ message.senderUsername }}</label>
-      <p>{{ message.text }}</p>
-      <p>{{ message.createdTime | date : "HH:MM" }}</p>
-    </div>
-    <hr />
   </div>
 
   <div id="message-bar">
@@ -71,15 +74,16 @@
     </form>
   </div>
   <div id="game-selection" *ngIf="showGames">
-    <ul id="games" *ngFor="let game of games">
-      <li id="rock-paper-scissors">
-        <figure class="game-link" (click)="inviteToGame(game.id!, game.link)">
+    <div id="games" *ngFor="let game of games">
+      <div class="game-option">
+        <figure
+          class="game-link"
+          (click)="sendInvite(game.id!, game.title, game.link)"
+        >
           <img src="{{ game.imageURL }}" alt="{{ game.title }}" />
           <figcaption>{{ game.title }}</figcaption>
         </figure>
-      </li>
-      <li></li>
-      <li></li>
-    </ul>
+      </div>
+    </div>
   </div>
 </div>
