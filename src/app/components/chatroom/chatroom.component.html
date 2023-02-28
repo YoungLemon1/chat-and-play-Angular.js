@@ -1,5 +1,5 @@
 <h1>{{ currentUsername }} chatting with {{ otherUsername }}</h1>
-<a [routerLink]="['/users-page', currentUsername]">Back</a>
+<a id="previous-page-link" [routerLink]="['/users-page', currentUsername]"><p>&lt;&lt;Back</p></a>
 <hr />
 <div>
   <!--   <div *ngFor="let message of messages">

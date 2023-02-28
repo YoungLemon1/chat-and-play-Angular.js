@@ -102,7 +102,7 @@ export class ChatroomComponent implements OnInit {
       gameId,
       link,
       null);
-    const s = this.messageService.create(invite).subscribe();
+    this.messageService.create(invite).subscribe();
     this.text = '';
   }
 

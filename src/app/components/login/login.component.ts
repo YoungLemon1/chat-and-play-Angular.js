@@ -17,11 +17,15 @@ export class LoginComponent {
   password = '';
 
   async authenticateUser() {
+    if(this.username === '' || this.password === '')
+    {
+      alert("please enter username and passord")
+      return;
+    }
     const isAuthenticated = await this.service.isUserAuthenticated(
       this.username,
       this.password
     );
-
     if (isAuthenticated) {
       const isOnline = await this.service.isUserOnline(this.username);
       if (isOnline) {

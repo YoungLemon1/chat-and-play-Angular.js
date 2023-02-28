@@ -10,19 +10,25 @@
       "id": 1,
       "username": "turtle02",
       "password": "t2",
-      "isOnline": true
+      "isOnline": false
     },
     {
       "id": 2,
       "username": "Heimdall60",
       "password": "h6",
-      "isOnline": false
+      "isOnline": true
     },
     {
       "username": "asdsx",
       "password": "zJTpDX7iZ63MPZU",
-      "isOnline": false,
+      "isOnline": true,
       "id": 3
+    },
+    {
+      "username": "adsadblaze08",
+      "password": "aaaa",
+      "isOnline": false,
+      "id": 4
     }
   ],
   "messages": [
@@ -79,6 +85,64 @@
       "gameId": 0,
       "inviteLink": "/rock-paper-scissors",
       "inviteStatus": true
+    },
+    {
+      "senderUsername": "turtle02",
+      "recipientUsername": "blaze08",
+      "text": "Hey",
+      "createdTime": "2022-12-23T21:06:43.215Z",
+      "id": "66512ec0-a67e-4555-984f-6a1522c5b306"
+    },
+    {
+      "senderUsername": "turtle02",
+      "recipientUsername": "blaze08",
+      "text": "Invite accepted",
+      "createdTime": "2022-12-23T21:06:47.139Z",
+      "id": "21681aff-42fe-48ed-974b-c56bc0c095a4",
+      "gameId": 0,
+      "inviteLink": "/rock-paper-scissors",
+      "inviteStatus": true
+    },
+    {
+      "senderUsername": "Heimdall60",
+      "recipientUsername": "blaze08",
+      "text": "Hey",
+      "createdTime": "2022-12-23T21:20:10.625Z",
+      "id": "0bea8c27-dd9e-4cf6-890b-da150c827aba"
+    },
+    {
+      "senderUsername": "Heimdall60",
+      "recipientUsername": "blaze08",
+      "text": "Hey",
+      "createdTime": "2022-12-25T14:08:39.204Z",
+      "id": "1b8afc2a-a2f4-4aa6-8c1f-39387ef34487"
+    },
+    {
+      "senderUsername": "blaze08",
+      "recipientUsername": "Heimdall60",
+      "text": "hello",
+      "createdTime": "2022-12-25T14:08:44.041Z",
+      "id": "3f82de5b-3c8f-42b9-9b25-7015ebc17fcf"
+    },
+    {
+      "senderUsername": "Heimdall60",
+      "recipientUsername": "blaze08",
+      "text": "Invite accepted",
+      "createdTime": "2022-12-25T14:09:00.016Z",
+      "id": "dcb6ad8e-0c0b-49fc-a4ec-65f1d9efdce2",
+      "gameId": 0,
+      "inviteLink": "/rock-paper-scissors",
+      "inviteStatus": true
+    },
+    {
+      "senderUsername": "Heimdall60",
+      "recipientUsername": "blaze08",
+      "text": "Invite declined",
+      "createdTime": "2022-12-25T14:09:25.484Z",
+      "id": "c0c3496e-3275-4059-8088-994f809acf59",
+      "gameId": 0,
+      "inviteLink": "/rock-paper-scissors",
+      "inviteStatus": false
     }
   ],
   "games": [
@@ -86,9 +150,7 @@
       "id": 0,
       "title": "Rock Paper Scissors",
       "imageURL": "https://miro.medium.com/max/640/1*G9UfaUBS_VqtFILMe37fZw.webp",
-      "link": "/rock-paper-scissors",
-      "isPlayer1Ready": false,
-      "isPlayer2Ready": false
+      "link": "/rock-paper-scissors"
     }
   ],
   "game-sessions": [
@@ -100,21 +162,15 @@
     },
     {
       "gameId": 0,
-      "player1": "blaze08",
-      "player2": "turtle02",
-      "id": "b2493dbd-c7a4-4245-ae07-c7a7aa8d5cdf"
+      "player1": "turtle02",
+      "player2": "blaze08",
+      "id": "ecf47e62-e181-4d07-b833-8a1eb5978355"
     },
     {
       "gameId": 0,
-      "player1": "turtle02",
+      "player1": "Heimdall60",
       "player2": "blaze08",
-      "id": "b290ed08-31c5-42e9-bfbf-0549a82183b7"
-    },
-    {
-      "gameId": 0,
-      "player1": "turtle02",
-      "player2": "blaze08",
-      "id": "da78005b-8130-4591-b662-1e03f2d81a5e"
+      "id": "f0f54e29-4afa-42ac-bfd1-4af929b19a01"
     }
   ]
 }

@@ -1,3 +1,7 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
 <div>
   <h2>Welcome {{ username }}!</h2>
   <button (click)="logout(username)">LOGOUT</button>
