@@ -3,7 +3,7 @@
     {
       "username": "blaze08",
       "password": "b8",
-      "isOnline": true,
+      "isOnline": false,
       "id": 0
     },
     {
@@ -16,7 +16,7 @@
       "id": 2,
       "username": "Heimdall60",
       "password": "h6",
-      "isOnline": true
+      "isOnline": false
     },
     {
       "username": "asdsx",
@@ -27,7 +27,7 @@
     {
       "username": "adsadblaze08",
       "password": "aaaa",
-      "isOnline": false,
+      "isOnline": true,
       "id": 4
     }
   ],
@@ -143,6 +143,16 @@
       "gameId": 0,
       "inviteLink": "/rock-paper-scissors",
       "inviteStatus": false
+    },
+    {
+      "senderUsername": "adsadblaze08",
+      "recipientUsername": "asdsx",
+      "text": "adsadblaze08 has invited asdsx to play Rock Paper Scissors",
+      "createdTime": "2023-02-28T08:23:10.351Z",
+      "id": "edf0bdd8-abfa-4df2-ab25-c34812545a90",
+      "gameId": 0,
+      "inviteLink": "/rock-paper-scissors",
+      "inviteStatus": null
     }
   ],
   "games": [

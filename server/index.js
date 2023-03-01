@@ -6,14 +6,14 @@ const app = express();
 const server = new http.Server(app);
 const socket = io(server);
 
-app.get("/", function (req, res) {
+app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-socket.on("connection", function (socket) {
-  console.log("a user connected");
+socket.on("connection", (socket) => {
+  console.log("a user has connected");
 });
 
-server.listen(3000, function () {
-  console.log("listening on *: 4200");
+server.listen(3000, () => {
+  console.log("listening on port: 4200");
 });
